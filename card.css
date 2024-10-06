@@ -4,8 +4,8 @@
   border-radius: 1rem;
   gap: 1rem;
   background-color: white;
-  width: 288px; 
-  max-height: 23rem; 
+  width: 350px; 
+  max-height: 30rem; 
   box-shadow: 0 2px 35px rgba(0, 0, 0, 0.1);
   border: 1px solid #e5e5e5;
   overflow: hidden;
@@ -20,12 +20,12 @@
   margin-right: 1rem;
   border-radius: 0.5rem;
   padding: 1rem;
-  text-align: left;
 }
 
 .priority-container {
   display: flex; 
   align-items: center; 
+  justify-content: center;
 }
 
 .task-priority {
@@ -34,24 +34,28 @@
 }
 
 .priority-icon {
-  margin-right: 0.5rem; 
-  font-size: 1rem;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-right: 5px;
 }
 
 .task-title {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
   margin: 0;
+  margin-top: 10px;
 }
 
 .task-description {
-  padding: 5px;
+  max-width: 90%;
+  margin: 0 auto;
+  font-size: 20px;
   text-align: center;
-  max-height: 288px; 
-  overflow: hidden; 
-  text-overflow: ellipsis; 
+  overflow-y: auto;
+  margin-top: -20px;
+  max-height: 200px;
+  word-wrap: break-word;
 }
 
 .task-dates {
@@ -59,15 +63,19 @@
   justify-content: space-between;
   font-weight: 600;
   padding: 0.5rem 1rem;
+  margin-top: -30px;
 }
 
 .task-date {
   display: flex;
+  font-size: 20px;
   flex-direction: column;
   align-items: center;
+
 }
 
 .date {
+  margin-top: -3px;
   font-weight: 300; 
 }
 
@@ -83,10 +91,11 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  margin-top: -50px;
   color: black;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 0.75rem;
+  font-size: 17px;
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -98,3 +107,41 @@
   background-color: #c6f6d5; 
   color: #2f855a;
 }
+
+@media (max-width: 1900px) {
+  .task-card {
+    max-height: 29rem; 
+    width: 330px;
+  }
+
+  .task-title {
+    font-size: 27px; 
+    margin-bottom: 0.5rem;
+  }
+
+  .task-priority {
+    font-size: 0.85rem; 
+  }
+
+  .task-description {
+    max-height: 150px; 
+    text-overflow: ellipsis; 
+    margin-top: -30px;
+    font-size: 19px;
+  }
+
+  .task-dates {
+    padding: 1rem 0.8rem; 
+  }
+
+  .task-date {
+    font-size: 20px;
+  }
+
+  .status-button {
+    padding: 0.4rem 1.2rem; 
+    font-size: 15px; 
+    margin-top: -60px;
+  }
+}
+
