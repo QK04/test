@@ -81,3 +81,38 @@ window.addEventListener('click', function(event) {
     }
 });
 
+
+// For Profile 
+document.getElementById('editProfileBtn').addEventListener('click', () => {
+    const profileInfo = document.querySelector('.profile-about');
+    
+    // Replace the current content with editable input fields
+    profileInfo.innerHTML = `
+        <p><strong>Name:</strong> <input type="text" id="nameInput" value="John Doe"></p>
+        <p><strong>Email:</strong> <input type="email" id="emailInput" value="johndoe@example.com"></p>
+        <button class="save-btn" id="saveProfileBtn">Save</button>
+    `;
+});
+
+// Event delegation for Save button
+document.body.addEventListener('click', function(event) {
+    if (event.target && event.target.id === 'saveProfileBtn') {
+        saveProfile();
+    }
+});
+
+function saveProfile() {
+    const name = document.getElementById('nameInput').value;
+    const email = document.getElementById('emailInput').value;
+
+    const profileInfo = document.querySelector('.profile-about');
+    
+    // Replace the input fields with the saved data
+    profileInfo.innerHTML = `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+    `;
+}
+
+
+

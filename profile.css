@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #e6f1f8;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Align items in a column */
+    align-items: center;
+}
+
+/* Header styles */
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed; /*Fixed positon even though we scroll */
+    top: 0; 
+    left: 0;
+    background-color:#ffffff; 
+    padding: 10px 20px;
+    z-index: 1000; /*Ensure header is on top */
+}
+
+/* Logo style */
+header .logo {
+    display: inline-flex; 
+    align-items: center; 
+    text-decoration: none; /* Remove underline from the links */
+    color: #253892;
+}
+
+/* Logo image style */
+header .logo img {
+    height: 40px; 
+    margin-right: 10px; 
+}
+
+/* Logo text styles */
+header .logo span {
+    font-size: 25px; 
+    font-weight: bold;
+    margin-top: 23px;
+}
+
+.main-content {
+    width: 100%; /* Ensure full width */
+    display: flex;
+    justify-content: center; /* Center the profile container horizontally */
+    padding-top: 250px; /* Space for the fixed header */
+    flex-grow: 1; 
+    align-items: center;
+}
+
+.profile-container {
+    width: 70%;
+    max-width: 600px;
+    min-height: 600px;
+    margin: 0; /* Remove margin to ensure centering */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile-info {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.profile-info h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile-info p {
+    margin-top: 10px;
+    color: #777;
+}
+
+.edit-profile-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    margin-top: 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-details {
+    margin-top: 20px;
+}
+
+.profile-details h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.profile-about p {
+    margin-bottom: 10px;
+}
+
+.task-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.task-stat {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.task-stat h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.task-stat p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* For screens up to 1900px */
+@media (max-width: 1900px) {
+    header .logo span {
+        font-size: 22px; /* Slightly smaller logo text */
+    }
+
+    .profile-info h1 {
+        font-size: 22px; /* Adjusted for smaller screens */
+    }
+
+    .profile-details h2 {
+        font-size: 16px; /* Adjusted for smaller screens */
+    }
+
+    .task-stat {
+        padding: 10px; /* Slightly smaller padding */
+    }
+
+    .task-stat h3 {
+        font-size: 14px; /* Adjusted font size */
+    }
+
+    .task-stat p {
+        font-size: 16px; /* Adjusted font size */
+    }
+}
+
+/* For screens up to 1280px */
+@media (max-width: 1280px) {
+    .main-content {
+        padding-top: 150px;
+    }
+    .profile-container {
+        padding: 15px; /* Reduce padding */
+        width: 70%;
+        max-width: 500px;
+        min-height: 500px;
+    }
+
+    header .logo span {
+        font-size: 20px; /* Further reduced logo text size */
+    }
+
+    .profile-info h1 {
+        font-size: 20px; /* Further reduced profile title size */
+    }
+
+    .edit-profile-btn {
+        padding: 8px 12px; /* Adjusted button size */
+    }
+
+    .task-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
