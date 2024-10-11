@@ -1,4 +1,4 @@
-body {
+.register-page {
     font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -14,7 +14,7 @@ body {
     overflow-y: hidden;
 }
 
-.header img {
+.register-page .header img {
     height: 40px;
     margin-right: 10px;
     position: absolute;
@@ -22,7 +22,7 @@ body {
     left: 10px;
 }
 
-.register-container {
+.register-container-form {
     background-color: #fcfcfc; /* White background for the form */
     padding: 50px;
     border-radius: 12px;
@@ -33,7 +33,7 @@ body {
     font-size: 1.1em;
 }
 
-h2 {
+.register-container-form h2 {
     margin-top: 10px;
     text-align: center;
     margin-bottom: 10px;
@@ -41,12 +41,12 @@ h2 {
     font-size: 2rem;
 }
 
-.form-group {
+.register-container-form .form-group {
     margin-top: 30px;
     margin-bottom: 20px;
 }
 
-input[type="text"],
+.register-container-form input[type="text"],
 input[type="password"],
 input[type="email"] {
     width: 100%;
@@ -60,16 +60,16 @@ input[type="email"] {
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus,
+.register-container-form input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus {
     border-color: #005aab;
 }
 
-input[type="submit"] {
+.register-container-form input[type="submit"] {
     width: 100%;
     padding: 15px;
-    margin-top: 10px;
+    margin: 10px 0;
     background-color: #005aab;
     border: none;
     border-radius: 8px;
@@ -80,48 +80,27 @@ input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover {
-    background-color: #253892; /* Darker blue on hover */
+.register-container-form input[type="submit"]:hover {
+    background-color: #253892;
 }
 
-.footer {
+.register-container-form .register {
     text-align: center;
-    margin-top: 15px;
-    font-size: 14px;
 }
 
-.footer a {
+.register-container-form .register a {
     color: #253892;
     text-decoration: none;
 }
 
-.footer a:hover {
+.register-container-form .register a:hover {
     text-decoration: underline;
-}
-
-.register a {
-    color: #253892;
-    text-decoration: none;
-}
-
-.register a:hover {
-    text-decoration: underline;
-}
-
-/* Large screens */
-@media (min-width: 1024px) {
-    .register-container {
-        width: 400px;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
 }
 
 /* Tablets and smaller screens */
 @media (max-width: 1024px) {
     .register-container {
+        padding: 20px;
         width: 100%;
         max-width: 350px;
     }
@@ -129,8 +108,8 @@ input[type="submit"]:hover {
 
 /* Mobile screens */
 @media (max-width: 600px) {
-    body {
-        padding: 10px;
+    .register-page {
+        padding: 40px;
     }
 
     .register-container {
@@ -139,20 +118,19 @@ input[type="submit"]:hover {
         box-shadow: none;
     }
 
-    input[type="text"],
+    .register-container-form input[type="text"],
     input[type="password"],
     input[type="email"],
     input[type="submit"] {
-        padding: 10px;
-        font-size: 14px;
+        padding: 15px;
+        font-size: 1rem;
     }
 
-    h2 {
-        font-size: 20px;
+    .register-container-form h2  {
+        font-size: 2rem;
     }
 
-    .footer,
     .register {
-        font-size: 10px;
+        font-size: 1rem;
     }
 }

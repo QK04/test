@@ -3,7 +3,7 @@ import '../css/home.css';
 
 const Home = () => {
   return (
-    <>
+    <div className="home-page">
       <header>
         <div className="menu-icon" id="menu-icon">
           <i className="fas fa-bars"></i>
@@ -43,7 +43,7 @@ const Home = () => {
           <p id="content-description">Chọn một mục từ navigation bar bên trái để bắt đầu.</p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
