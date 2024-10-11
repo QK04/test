@@ -1,0 +1,322 @@
+/* Base style for the body */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+/* Header styles */
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed; /*Fixed positon even though we scroll */
+    top: 0; 
+    left: 0;
+    background-color:#ffffff; 
+    padding: 10px 20px;
+    z-index: 1000; /*Ensure header is on top */
+}
+
+/* Logo style */
+header .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex; 
+    align-items: center; 
+    text-decoration: none; /* Remove underline from the links */
+    color: #253892;
+}
+
+/* Logo image style */
+header .logo img {
+    height: 40px; 
+    margin-right: 10px; 
+}
+
+/* Logo text styles */
+header .logo span {
+    font-size: 25px; 
+    font-weight: bold;
+    margin-top: 23px;
+}
+
+/* Account icon styles */
+header .account {
+    position: relative;
+    color: #253892; 
+    font-size: 30px; 
+    text-decoration: none; 
+    margin-right: 50px;
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Dropdown menu styles */
+.dropdown-content {
+    display: none; /* Hide dropdown by default */
+    position: absolute;
+    right: 0; 
+    background-color: #ffffff; 
+    min-width: 250px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    border-radius: 10px; 
+}
+
+/* Styles for dropdown links */
+.dropdown-content a {
+    color: #253892; 
+    padding: 15px 15px; 
+    text-decoration: none; 
+    font-size: 18px;
+    display: flex; 
+    align-items: center;
+    position: relative;
+    transition: background-color 0.3s; 
+}
+
+/* Icon styles in dropdown links */
+.dropdown-content a i {
+    margin-right: 10px;
+    font-size: 20px;
+    display: inline-flex;
+    width: 25px;
+    text-align: center;
+}
+
+/* This is a line between 2 links*/
+.dropdown-content a::after {
+    content: '';
+    position: absolute;
+    left: 15px; 
+    right: 15px; 
+    bottom: 0; 
+    height: 2px; 
+    background-color: #a8a8a844; 
+    transition: background-color 0.3s;
+}
+
+/* Remove a line after logout link */
+.dropdown-content a.logout::after {
+    display: none; 
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; 
+}
+
+.account:hover .dropdown-content {
+    display: block; 
+}
+
+/* Menu icon styles */
+header .menu-icon {
+    font-size: 30px;
+    color: #253892;
+    padding: 10px;
+    cursor: pointer;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+/* Navbar styles */
+.navbar {
+    height: 100vh;
+    width: 350px; 
+    background-color: #ffffff;
+    position: fixed;
+    left: -350px; /* Hidden to the left*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.3s; /* Transition for showing/hiding */
+}
+
+.navbar.show {
+    left: 0; 
+}
+
+.navbar a {
+    padding: 20px 50px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #AAB0C6;  
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #F5F7FB; 
+    color: #253892;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar icon */
+.navbar a i {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    display: inline-flex;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar a:hover i {
+    color: #ffffff; 
+    background-color: #253892;
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+    margin-top: 70px;
+    transition: margin-left 0.3s;
+    background-color: #e6f1f8;
+    min-height: 100vh;
+}
+
+.content.shift-right {
+    margin-left: 350px;
+}
+
+#content-title {
+    font-size: 24px;
+}
+
+#content-description {
+    font-size: 18px;
+    color: #666;
+}
+
+
+
+/* css for add-new-task.html */
+.task-form {
+    margin: 80px;
+}
+
+.task-form label {
+    font-weight: bold;
+}
+
+.task-form input, .task-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.task-form button {
+    margin: 30px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 30%;
+}
+
+.task-form button:hover {
+    background-color: #218838;
+}
+
+.task-form select{
+    max-width: 100%;     
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+
+/* css for deployed task */
+/* im ussing card format */
+/* Container for all task cards */
+.task-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Styles for individual task cards */
+.task-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px; /* Set width for each card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.task-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Task name */
+.task-name {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Task priority and deadline */
+.task-priority,
+.task-deadline {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Container for action buttons */
+.task-actions {
+    display: flex;
+    justify-content: space-between; /* Even spacing between buttons */
+    margin-top: 15px;
+}
+
+/* Button styles */
+.task-actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-edit {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #0056b3;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+.btn-completed {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-completed:hover {
+    background-color: #218838;
+}
