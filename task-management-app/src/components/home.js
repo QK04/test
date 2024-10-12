@@ -42,18 +42,19 @@ function Home(){
             placeholder="Search"
             className="search-bar"
           />
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>  
         </div>
-        <a href="#" data-target="dashboard"><i className="fas fa-tachometer-alt"></i>Dashboard</a>
-        <a href="#" data-target="completed"><i className="fas fa-check-circle"></i>Completed Tasks</a>
-        <a href="#" data-target="pending"><i className="fas fa-hourglass-half"></i>Pending Tasks</a>
-        <a href="#" data-target="in-progress"><i className="fas fa-tasks"></i>In Progress Tasks</a>
-        <a href="#" data-target="deployed"><i className="fas fa-cloud-upload-alt"></i>Deployed Tasks</a>
-        <a href="#" data-target="deferred"><i className="fas fa-pause-circle"></i>Deferred Tasks</a>
-        <a href="#" data-target="add-new"><i className="fas fa-plus-circle"></i>Add New Tasks</a>
-        <a href="#" data-target="task-stats"><i className="fas fa-chart-bar"></i>Task Stats</a>
-        <a href="#" data-target="task-stats"><i className="fas fa-chart-bar"></i>Task Stats</a>
-        <a href="#" data-target="task-stats"><i className="fas fa-chart-bar"></i>Task Stats</a>
+        <a href="#" ><i class="fa-regular fa-sun"></i>My Day</a>
+        <a href="#" ><i class="fa-regular fa-star"></i>Important</a>
+        <a href="#" ><i class="fa-solid fa-pen"></i>Planned</a>
+        <a href="#" ><i class="fa-solid fa-house"></i>Tasks</a>
+        <div className="divider-line"></div>
+        <div className="new-section">
+          <a href="#" data-target="new-list"><i className="fas fa-plus"></i>New list</a>
+          <a href="#" data-target="new-group"><i className="fas fa-copy"></i>New Group</a>
+        </div>
       </div>
+
 
       <div className="content">
         <div className="content-inner">
