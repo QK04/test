@@ -4,7 +4,7 @@
     font-family: Arial, sans-serif;
 }
 /* Header styles */
-header {
+.home-page header {
     width: 100%;
     display: flex;
     align-items: center;
@@ -18,10 +18,7 @@ header {
 }
 
 /* Logo style */
-header .logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+.home-page header .logo {
     display: inline-flex; 
     align-items: center; 
     text-decoration: none; /* Remove underline from the links */
@@ -29,20 +26,20 @@ header .logo {
 }
 
 /* Logo image style */
-header .logo img {
+.home-page header .logo img {
     height: 40px; 
     margin-right: 10px; 
 }
 
 /* Logo text styles */
-header .logo span {
+.home-page header .logo span {
     font-size: 25px; 
     font-weight: bold;
     margin-top: 23px;
 }
 
 /* Account icon styles */
-header .account {
+.home-page header .account {
     position: relative;
     color: #253892; 
     font-size: 30px; 
@@ -52,7 +49,7 @@ header .account {
 }
 
 /* Dropdown menu styles */
-.dropdown-content {
+.account .dropdown-content {
     display: none; /* Hide dropdown by default */
     position: absolute;
     right: 0; 
@@ -63,7 +60,7 @@ header .account {
 }
 
 /* Styles for dropdown links */
-.dropdown-content a {
+.account .dropdown-content a {
     color: #253892; 
     padding: 15px 15px; 
     text-decoration: none; 
@@ -75,7 +72,7 @@ header .account {
 }
 
 /* Icon styles in dropdown links */
-.dropdown-content a i {
+.account .dropdown-content a i {
     margin-right: 10px;
     font-size: 20px;
     display: inline-flex;
@@ -84,7 +81,7 @@ header .account {
 }
 
 /* This is a line between 2 links*/
-.dropdown-content a::after {
+.account .dropdown-content a::after {
     content: '';
     position: absolute;
     left: 15px; 
@@ -109,7 +106,7 @@ header .account {
 }
 
 /* Menu icon styles */
-header .menu-icon {
+.home-page header .menu-icon {
     font-size: 30px;
     color: #253892;
     padding: 10px;
@@ -121,16 +118,17 @@ header .menu-icon {
 
 /* Navbar styles */
 .navbar {
-    height: 100vh;
-    width: 350px; 
+    height: 90vh;
+    width: 300px; 
     background-color: #ffffff;
     position: fixed;
     left: -350px; /* Hidden to the left*/
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: 0.3s; /* Transition for showing/hiding */
+    overflow-y: auto;
 }
 
 .navbar.show {
@@ -138,9 +136,9 @@ header .menu-icon {
 }
 
 .navbar a {
-    padding: 20px 50px;
+    padding: 10px 15px;
     text-decoration: none;
-    font-size: 22px;
+    font-size: 1.2rem;
     color: #AAB0C6;  
     display: flex;
     align-items: center;
@@ -153,6 +151,29 @@ header .menu-icon {
     color: #253892;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+
+/* Search Bar style */
+.search-container {
+    padding: 10px 20px;
+    margin-bottom: 5px;
+}
+
+.search-bar {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #555;
+    background-color: #f9f9f9;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar:focus {
+    border-color: #005aab;
+}
+
 
 /* Navbar icon */
 .navbar a i {

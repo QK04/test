@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useRef } from "react";
 import '../css/home.css';
 
-const Home = () => {
+function Home(){
+  // Create a reference for navbar
+  const navRef = useRef(null);
+
+  const toggleNavBar = () => {
+    if(navRef.current){
+      navRef.current.classList.toggle('show');
+    }
+  };
+
   return (
     <div className="home-page">
       <header>
-        <div className="menu-icon" id="menu-icon">
+        <div className="menu-icon" id="menu-icon" onClick={toggleNavBar}>
           <i className="fas fa-bars"></i>
         </div>
 
@@ -26,7 +35,14 @@ const Home = () => {
         </div>
       </header>
 
-      <div className="navbar" id="navbar">
+      <div className="navbar" ref={navRef}>
+        <div className="search-container">
+          <input 
+            type="text"
+            placeholder="Search"
+            className="search-bar"
+          />
+        </div>
         <a href="#" data-target="dashboard"><i className="fas fa-tachometer-alt"></i>Dashboard</a>
         <a href="#" data-target="completed"><i className="fas fa-check-circle"></i>Completed Tasks</a>
         <a href="#" data-target="pending"><i className="fas fa-hourglass-half"></i>Pending Tasks</a>
@@ -34,6 +50,8 @@ const Home = () => {
         <a href="#" data-target="deployed"><i className="fas fa-cloud-upload-alt"></i>Deployed Tasks</a>
         <a href="#" data-target="deferred"><i className="fas fa-pause-circle"></i>Deferred Tasks</a>
         <a href="#" data-target="add-new"><i className="fas fa-plus-circle"></i>Add New Tasks</a>
+        <a href="#" data-target="task-stats"><i className="fas fa-chart-bar"></i>Task Stats</a>
+        <a href="#" data-target="task-stats"><i className="fas fa-chart-bar"></i>Task Stats</a>
         <a href="#" data-target="task-stats"><i className="fas fa-chart-bar"></i>Task Stats</a>
       </div>
 
