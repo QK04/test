@@ -125,10 +125,11 @@
     left: -350px; /* Hidden to the left*/
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: 0.3s; /* Transition for showing/hiding */
     overflow-y: auto;
+    padding-bottom: 15px; 
 }
 
 .navbar.show {
@@ -206,19 +207,19 @@
 .divider-line {
     width: 100%;
     height: 1px;
-    background-color: #999;
+    background-color: #888888;
+    opacity: 0.2w;
+    flex-shrink: 0; /* Prevent the line from shrinking */
     margin: 10px 0;
 }
 
 /* Styles for the 'New list' and 'Create a new group' section */
 .new-section {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 15px 0;
     align-items: center;
+    padding: 15px;
+    flex-shrink: 0;
 }
 
 .new-section a {
@@ -245,13 +246,16 @@
     text-align: center;
     padding: 20px;
     margin-top: 70px;
-    transition: margin-left 0.3s;
+    transition: margin-left 0.3s ease, width 0.3s ease;
     background-color: #e6f1f8;
     min-height: 100vh;
+    width: 100%;
 }
 
 .content.shift-right {
-    margin-left: 350px;
+    margin-left: 300px;
+    width: calc(100% - 300px); /* Adjust the width when shifted */
+
 }
 
 #content-title {
