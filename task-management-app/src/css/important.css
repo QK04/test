@@ -1,5 +1,5 @@
-.my-day-container{
-    background-color: #e3f2fc;
+.important-container {
+    background-color: #ffebee; /* Change the background color as desired */
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -7,35 +7,40 @@
 }
 
 /* Header section */
-.my-day-header {
+.important-header {
+    display: flex;
+    align-items: center;
     padding: 20px;
     font-size: 1.5rem;
     text-align: left;
-    margin-left: 10px;
-    width: calc(100% - 60px);
-  }
-  
-.my-day-header p {
-    font-size: 1rem;
-    color: #666;
-    margin-top: 5px;
+    width: calc(100% - 10px);
+}
+
+.important-header i {
+    color: #f50057; 
+    margin-left: 10px; 
+}
+
+.important-header h2 {
+    color: #f50057;
+    margin-left: 20px;
 }
 
 /* Task list Styles */
-.task-list{
+.important-container .task-list {
     flex-grow: 1;
     overflow-y: auto;
     margin-left: 30px;
-    background-color: #e3f2fc;
+    background-color: #ffebee; 
 }
 
 /* Task item styles */
-.task-item{
+.important-container .task-item {
     display: flex;
     align-items: center;
     padding: 12px;
     background-color: #fff;
-    border: 1px solid #c8e4f5;
+    border: 1px solid #f8bbd0;
     border-radius: 5px;
     margin-bottom: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -43,41 +48,40 @@
 }
 
 /* Task item completed styles */
-.task-item.completed-task {
-    background-color: #f0f4ff;
+.important-container .task-item.completed-task {
+    background-color: #fce4ec; /* Lighter shade for completed tasks */
 }
 
-.task-item.completed-task i {
+.important-container .task-item.completed-task i {
     text-decoration: none;
 }
 
-.task-item.completed-task label{
+.important-container .task-item.completed-task label {
     text-decoration: line-through;
     color: #777;
 }
 
-
-.task-item input[type="checkbox"] {
+.important-container .task-item input[type="checkbox"] {
     margin-right: 12px;
     transform: scale(1.2);
 }
 
-.task-item label {
+.important-container .task-item label {
     font-size: 1.1rem;
     color: #333;
 }
 
 /* Completed section styles */
-.completed-section {
+.important-container .completed-section {
     margin-top: 20px; 
-    background-color: #e3f2fc; 
-    border: 1px solid #c8e4f5; 
+    background-color: #ffebee; 
+    border: 1px solid #f8bbd0; 
     border-radius: 5px; 
     padding: 10px; 
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
 }
 
-.completed-header {
+.important-container .completed-header {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -87,18 +91,18 @@
     text-align: left;
 }
 
-.completed-header i {
+.important-container .completed-header i {
     margin-right: 10px;
     color: #000;
 }
 
 /* Bookmark icon */
-.bookmarked {
-    color: #253892;
+.important-container .bookmarked {
+    color: #f50057; /* Change to a distinct color for bookmarks */
 }
 
 /* Task Input Container */
-.task-input {
+.important-container .task-input {
     background-color: #fff; 
     padding: 8px; 
     margin-left: 30px;
@@ -108,12 +112,12 @@
     width: calc(100% - 140px);
     display: flex;
     align-items: center; 
-    border: 1px solid #c8e4f5; 
+    border: 1px solid #f8bbd0; 
     border-radius: 5px; 
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); 
 }
 
-.task-input input {
+.important-container .task-input input {
     flex: 1;
     padding: 12px 0;
     font-size: 1.2rem;
@@ -123,7 +127,7 @@
     position: relative;
 }
 
-.task-input i {
+.important-container .task-input i {
     color: #000;
     padding: 10px;
     cursor: pointer;
@@ -131,6 +135,6 @@
     margin-right: 10px;
 }
 
-.task-input i:hover{
-    color: #0078d7
+.important-container .task-input i:hover {
+    color: #d50000; /* Change hover color if desired */
 }

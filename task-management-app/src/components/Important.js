@@ -1,24 +1,17 @@
 import {React, useState} from 'react';
-import "../css/myday.css";
+import "../css/important.css";
 
-function MyDay() {
+function Important() {
   // State to hold tasks
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
   const [isCompletedVisible, setIsCompletedVisible] = useState(true);
 
-  // Get the current date
-  const currentDate = new Date().toLocaleDateString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
 
   // Handle adding a task 
   const handleAddTask = () => {
     if(newTask.trim()) {
-      setTasks([...tasks, { id: Date.now() , name: newTask, completed: false, bookmarked: false}]) // Set an unique ID
+      setTasks([...tasks, { id: Date.now() , name: newTask, completed: false, bookmarked: true}]) // Set an unique ID
       setNewTask('');
     }
   };
@@ -56,10 +49,9 @@ function MyDay() {
   }
 
   return (
-    <div className='my-day-container'>
-      <div className='my-day-header'>
-        <h2>My Day</h2>
-        <p>{currentDate}</p>
+    <div className='important-container'>
+      <div className='important-header'>
+        <i className="fa-regular fa-star"></i><h2>Important</h2>
       </div>
 
       <div className='task-list'>
@@ -122,4 +114,4 @@ function MyDay() {
   );
 }
 
-export default MyDay;
+export default Important;
