@@ -184,7 +184,11 @@
     transform: translateY(-50%);
     font-size: 1.2rem;
     color: #888888;
-}   
+}
+
+.search-icon:hover {
+    color: #0078d7;
+}
 
 /* Navbar icon */
 .navbar a i {
@@ -257,16 +261,6 @@
     width: calc(100% - 300px); /* Adjust the width when shifted */
 
 }
-
-#content-title {
-    font-size: 24px;
-}
-
-#content-description {
-    font-size: 18px;
-    color: #666;
-}
-
 
 
 /* css for add-new-task.html */
