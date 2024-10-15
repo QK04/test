@@ -4,6 +4,7 @@ import Login from "./components/login.js";
 import Register from './components/register.js';
 import Home from './components/home.js';
 import './App.css';
+import { TaskProvider } from './context/TaskContext.js';
 
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -17,7 +18,9 @@ const router = createBrowserRouter(createRoutesFromElements(
 function App() {
   return (
     <>
-      <RouterProvider router={router}/>
+      <TaskProvider>
+        <RouterProvider router={router}/>
+      </TaskProvider>
     </>    
   );
 }

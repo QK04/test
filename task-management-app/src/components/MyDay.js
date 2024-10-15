@@ -1,9 +1,11 @@
 import {React, useState} from 'react';
 import "../css/myday.css";
+import { useTasks } from '../context/TaskContext';
 
 function MyDay() {
   // State to hold tasks
-  const [tasks, setTasks] = useState([]);
+  const {tasks, addTask, toggleTask, toggleBookmark } = useTasks(); // export as an object to use for useTasks()
+  console.log(tasks);
   const [newTask, setNewTask] = useState('');
   const [isCompletedVisible, setIsCompletedVisible] = useState(true);
 
@@ -18,7 +20,7 @@ function MyDay() {
   // Handle adding a task 
   const handleAddTask = () => {
     if(newTask.trim()) {
-      setTasks([...tasks, { id: Date.now() , name: newTask, completed: false, bookmarked: false}]) // Set an unique ID
+      addTask(newTask);
       setNewTask('');
     }
   };
@@ -28,16 +30,16 @@ function MyDay() {
     setNewTask(e.target.value);
   };
 
-  // Handle toggle tasks
-  const toggleTask = (taskId) => {
-    const updatedTasks = tasks.map((task) => {
-      if (task.id === taskId) {
-        return { ...task, completed: !task.completed }; 
-      }
-      return task;
-    });
-    setTasks(updatedTasks);
-  };
+  // // Handle toggle tasks
+  // const toggleTask = (taskId) => {
+  //   const updatedTasks = tasks.map((task) => {
+  //     if (task.id === taskId) {
+  //       return { ...task, completed: !task.completed }; 
+  //     }
+  //     return task;
+  //   });
+  //   setTasks(updatedTasks);
+  // };
 
   // Toggle completed section visibility
   const toggleCompletedSection = () => {
@@ -45,15 +47,15 @@ function MyDay() {
   };
 
   // Toggle bookmark status of a task 
-  const toggleBookmark = (taskId) => {
-    const updatedTasks = tasks.map((task) => {
-      if(task.id === taskId) {
-        return{ ...task, bookmarked: !task.bookmarked};
-      }
-      return task;
-    });
-    setTasks(updatedTasks);
-  }
+  // const toggleBookmark = (taskId) => {
+  //   const updatedTasks = tasks.map((task) => {
+  //     if(task.id === taskId) {
+  //       return{ ...task, bookmarked: !task.bookmarked};
+  //     }
+  //     return task;
+  //   });
+  //   setTasks(updatedTasks);
+  // }
 
   return (
     <div className='my-day-container'>

@@ -19,7 +19,7 @@ function Home() {
     'Tasks': '#f1f8e9'
   };
 
-  const backgroundColor = backgroundColorContent[content] || '#fff';
+  const backgroundColor = backgroundColorContent[content] || '#e6f1f8';
 
   const toggleNavBar = () => {
     if (navRef.current) {

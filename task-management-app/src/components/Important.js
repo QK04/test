@@ -1,9 +1,10 @@
 import {React, useState} from 'react';
 import "../css/important.css";
+import { useTasks } from '../context/TaskContext';
 
 function Important() {
   // State to hold tasks
-  const [tasks, setTasks] = useState([]);
+  const { addImportantTask,toggleTask, toggleBookmark, bookmarkedTasks} = useTasks();
   const [newTask, setNewTask] = useState('');
   const [isCompletedVisible, setIsCompletedVisible] = useState(true);
 
@@ -11,7 +12,7 @@ function Important() {
   // Handle adding a task 
   const handleAddTask = () => {
     if(newTask.trim()) {
-      setTasks([...tasks, { id: Date.now() , name: newTask, completed: false, bookmarked: true}]) // Set an unique ID
+      addImportantTask(newTask);
       setNewTask('');
     }
   };
@@ -21,32 +22,11 @@ function Important() {
     setNewTask(e.target.value);
   };
 
-  // Handle toggle tasks
-  const toggleTask = (taskId) => {
-    const updatedTasks = tasks.map((task) => {
-      if (task.id === taskId) {
-        return { ...task, completed: !task.completed }; 
-      }
-      return task;
-    });
-    setTasks(updatedTasks);
-  };
-
   // Toggle completed section visibility
   const toggleCompletedSection = () => {
     setIsCompletedVisible(!isCompletedVisible);
   };
 
-  // Toggle bookmark status of a task 
-  const toggleBookmark = (taskId) => {
-    const updatedTasks = tasks.map((task) => {
-      if(task.id === taskId) {
-        return{ ...task, bookmarked: !task.bookmarked};
-      }
-      return task;
-    });
-    setTasks(updatedTasks);
-  }
 
   return (
     <div className='important-container'>
@@ -55,7 +35,7 @@ function Important() {
       </div>
 
       <div className='task-list'>
-        {tasks.filter(task => !task.completed).map((task) => (
+        {bookmarkedTasks.filter(task => !task.completed).map((task) => (
             <div key={task.id} className="task-item">
               <input 
                 type="checkbox" 
@@ -72,15 +52,15 @@ function Important() {
             </div>
           ))}
 
-        {tasks.filter(task => task.completed).length > 0 && (
+        {bookmarkedTasks.filter(task => task.completed).length > 0 && (
           <div className="completed-section">
             <div className="completed-header" onClick={toggleCompletedSection}>
               <span>
                 <i className={`fa-solid fa-chevron-${isCompletedVisible ? 'right' : 'down'}`}></i> 
-                Completed {tasks.filter(task => task.completed).length}
+                Completed {bookmarkedTasks.filter(task => task.completed).length}
               </span>
             </div>
-            {isCompletedVisible && tasks.filter(task => task.completed).map((task) => (
+            {isCompletedVisible && bookmarkedTasks.filter(task => task.completed).map((task) => (
               <div key={task.id} className="task-item completed-task">
                 <input 
                   type="checkbox" 
