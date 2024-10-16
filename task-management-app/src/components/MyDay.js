@@ -5,10 +5,9 @@ import TaskDetails from './TaskDetails';
 
 function MyDay() {
   // State to hold tasks
-  const {tasks, addTask, toggleTask, toggleBookmark } = useTasks(); // export as an object to use for useTasks()
+  const {tasks, selectedTask, addTask, setTasks, addMyDay, openTaskDetails, closeTaskDetails, toggleTask, toggleBookmark } = useTasks(); // export as an object to use for useTasks()
   const [newTask, setNewTask] = useState('');
   const [isCompletedVisible, setIsCompletedVisible] = useState(true);
-  const [selectedTask, setSelectedTask] = useState(null);
 
   // Get the current date
   const currentDate = new Date().toLocaleDateString('en-US', {
@@ -22,6 +21,12 @@ function MyDay() {
   const handleAddTask = () => {
     if(newTask.trim()) {
       addTask(newTask);
+      setTasks((prevTasks) => {
+        const newTaskId = Date.now(); // Set up the same Id
+        return prevTasks.map(task => 
+            task.id === newTaskId ? { ...task, myDay: true } : task
+        );
+    });
       setNewTask('');
     }
   };
@@ -36,39 +41,6 @@ function MyDay() {
     setIsCompletedVisible(!isCompletedVisible);
   };
 
-  // Open task details
-  const openTaskDetails = (task) => {
-    if (selectedTask && selectedTask.id === task.id) {
-      closeTaskDetails();
-    } else {
-      setSelectedTask(task);
-      const myDayContainer = document.querySelector('.my-day-container');
-      const taskDetailsSection = document.querySelector('.task-details-section');
-  
-      if (myDayContainer && taskDetailsSection) {
-          myDayContainer.classList.add('shifted'); // Remove the period
-          taskDetailsSection.classList.add('active'); // Remove the period
-      } else {
-          console.error('Element not found: myDayContainer or taskDetailsSection');
-      }
-    }
-    
-}
-
-  // Close task details
-  const closeTaskDetails = () => {
-    setSelectedTask(null);
-    const myDayContainer = document.querySelector('.my-day-container');
-    const taskDetailsSection = document.querySelector('.task-details-section');
-
-    if (myDayContainer && taskDetailsSection) {
-        myDayContainer.classList.remove('shifted'); // Remove the period
-        taskDetailsSection.classList.remove('active'); // Remove the period
-    } else {
-        console.error('Element not found: myDayContainer or taskDetailsSection');
-    }
-  }
-
   return (
     <div className='my-day-container'>
       <div className='my-day-header'>
@@ -77,13 +49,19 @@ function MyDay() {
       </div>
 
       <div className='task-list'>
-        {tasks.filter(task => !task.completed).map((task) => (
-            <div key={task.id} className="task-item" onClick={() => openTaskDetails(task)}>
+        {tasks.filter(task => task.myDay && !task.completed).map((task) => (
+            <div key={task.id} className="task-item" onClick={(e) => { 
+                // Check if the clicked target is not the checkbox
+                if (e.target.tagName !== 'INPUT') {
+                openTaskDetails(task);
+                }
+              }}
+            >
               <input 
                 type="checkbox" 
                 id={`task-${task.id}`} 
                 checked={task.completed}
-                onChange={() => toggleTask(task.id)}
+                onChange={()=> toggleTask(task.id)}
               />
               <label htmlFor={`task-${task.id}`}>{task.name}</label>
               <i
@@ -94,7 +72,7 @@ function MyDay() {
             </div>
           ))}
 
-        {tasks.filter(task => task.completed).length > 0 && (
+        {tasks.filter(task => task.myDay && task.completed).length > 0 && (
           <div className="completed-section">
             <div className="completed-header" onClick={toggleCompletedSection}>
               <span>
@@ -102,13 +80,17 @@ function MyDay() {
                 Completed {tasks.filter(task => task.completed).length}
               </span>
             </div>
-            {isCompletedVisible && tasks.filter(task => task.completed).map((task) => (
-              <div key={task.id} className="task-item completed-task" onClick={() => openTaskDetails(task)}>
+            {isCompletedVisible && tasks.filter(task => task.myDay && task.completed).map((task) => (
+              <div key={task.id} className="task-item completed-task" onClick={(e) => { 
+                if (e.target.tagName !== 'INPUT') {
+                openTaskDetails(task);
+                }
+              }}>
                 <input 
                   type="checkbox" 
                   id={`completed-task-${task.id}`} 
                   checked={task.completed}
-                  onChange={() => toggleTask(task.id)}
+                  onChange={()=> toggleTask(task.id)}
                 />
                 <label htmlFor={`completed-task-${task.id}`}>{task.name}</label>
                 <i
@@ -135,7 +117,10 @@ function MyDay() {
 
       <div className='task-details-section'>
         {selectedTask && (
+          <>
+          {console.log("Selected Task:", selectedTask)}
           <TaskDetails task={selectedTask} closeDetails={closeTaskDetails}/>
+           </>
         )}
       </div>
     </div>

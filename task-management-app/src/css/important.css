@@ -62,8 +62,21 @@
 }
 
 .important-container .task-item input[type="checkbox"] {
+    appearance: none; 
+    width: 20px; 
+    height: 20px; 
     margin-right: 12px;
-    transform: scale(1.2);
+    border: 2px solid #222; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    position: relative; 
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s; 
+}
+
+.important-container .task-item input[type="checkbox"]:checked {
+    background-color: #ef4d79; 
+    border-color: #ef4d79; 
 }
 
 .important-container .task-item label {
@@ -74,11 +87,8 @@
 /* Completed section styles */
 .important-container .completed-section {
     margin-top: 20px; 
-    background-color: #ffebee; 
-    border: 1px solid #f8bbd0; 
-    border-radius: 5px; 
+    border: none; 
     padding: 10px; 
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
 }
 
 .important-container .completed-header {
@@ -91,11 +101,19 @@
     text-align: left;
 }
 
+.important-container .completed-section .task-item.completed-task{
+    margin-left: -10px;
+    width: calc(100% - 72px);
+}
+
 .important-container .completed-header i {
     margin-right: 10px;
     color: #000;
 }
 
+.important-container .completed-task input[type="checkbox"] {
+    filter: none; 
+}
 /* Bookmark icon */
 .important-container .bookmarked {
     color: #f50057; /* Change to a distinct color for bookmarks */

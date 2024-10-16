@@ -8,7 +8,7 @@
 }
 
 .my-day-container.shifted {
-    margin-right: 300px;
+    margin-right: 400px;
 }
 
 /* Header section */
@@ -46,7 +46,8 @@
     margin-bottom: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     width: calc(100% - 90px);
-    cursor: pointer; 
+    cursor: pointer;
+    flex-wrap: wrap; 
 }
 
 /* Task item completed styles */
@@ -63,12 +64,33 @@
     color: #777;
 }
 
-
 .task-item input[type="checkbox"] {
+    appearance: none; 
+    width: 20px; 
+    height: 20px; 
     margin-right: 12px;
-    transform: scale(1.2);
+    border: 2px solid #222; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    position: relative; 
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s; 
+}
+  
+.task-item input[type="checkbox"]:checked {
+    background-color: #005baf; 
+    border-color: #005baf; 
 }
 
+.task-item input[type="checkbox"]:checked::after {
+    content: '✓'; 
+    position: absolute; 
+    top: 0; 
+    left: 3px; 
+    color: white; 
+    font-size: 12px; 
+}
+  
 .task-item label {
     font-size: 1.1rem;
     color: #333;
@@ -82,9 +104,10 @@
 }
 
 .task-item.completed-task {
-    background-color: #f0f4ff;
-    width: calc(100% - 90px); /* Adjust to match other task items */
+    margin-left: -10px;
+    width: calc(100% - 72px); /* Adjust to match other task items */
 }
+
 
 .completed-header {
     cursor: pointer;
@@ -99,6 +122,10 @@
 .completed-header i {
     margin-right: 10px;
     color: #000;
+}
+
+.completed-task input[type="checkbox"] {
+    filter: none; 
 }
 
 /* Bookmark icon */
@@ -146,8 +173,9 @@
 
 /* Task Details Sidebar */
 .task-details-section {
-    width: 300px;
-    height: 100%;
+    width: 400px;
+    min-height: 100%;
+    height: auto;
     margin-top: 70px;
     background-color: #f9f9f9;
     border-left: 1px solid #ddd;

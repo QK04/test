@@ -1,96 +1,301 @@
-.task-details {
-    padding: 20px; /* Padding for content */
-    background: #ffffff; /* Background color */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+/* Task Details Container Styles */
+.task-details-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
 }
 
+/* Task Details Header Styles */
 .task-details-header {
+    display: flex; 
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.close-button {
+    width: 20px;
+    height: 20px;
+    color: #888;
+    opacity: 70%;
+    cursor: pointer;
+    margin: 10px 12px;
+}
+/* Task Container Styles (Each Section) */
+.task-details-container .task-container {
+    padding: 10px;
+    margin: 12px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     display: flex;
-    justify-content: space-between; /* Space between name and close button */
+    flex-direction: column;
+    align-content: center;
+}
+
+
+.task-container .task-inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;       
+    justify-content: space-between; 
+    background-color: #fff;
+}
+
+.task-container .task-inline input[type="checkbox"] {
+    appearance: none; 
+    width: 20px; 
+    height: 20px; 
+    margin-right: 4px;
+    border: 2px solid #222; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    position: relative; 
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s; 
+}
+
+.task-container .task-inline input[type="checkbox"]:checked {
+    background-color: #005baf; 
+    border-color: #005baf; 
+}
+
+.task-container .task-inline input[type="checkbox"]:checked::after {
+    content: '✓'; 
+    position: absolute; 
+    top: 0; 
+    left: 3px; 
+    color: white; 
+    font-size: 12px; 
+}
+
+.task-inline input[type="text"] {
+    border: 2px solid #ccc; 
+    border-radius: 4px; 
+    padding: 5px; 
+    width: 200px; 
+    margin-left: 10px; 
+    transition: border-color 0.3s; 
+}
+
+.task-inline input[type="text"]:focus {
+    border-color: #007bff; 
+    outline: none; 
+}
+
+/* Step Adding Section */
+.step-container {
+    background-color: #fff; 
+    margin: 6px;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center; 
+}
+
+.step-container input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.step-container input[type="text"]::placeholder {
+    color: #0078d7;
+}
+
+.step-container i {
+    color: #0078d7;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.step-container i:hover {
+    color: #0056a0;
+}
+
+/* Step item Styles */
+.step-item { 
+    display: flex;
     align-items: center;
-    margin-bottom: 20px; /* Space below the header */
+    padding: 8px;
+    background-color: #fff;
+    border: 1px solid #c8e4f5;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
-.close-details {
-    background: transparent;
-    border: none;
-    cursor: pointer; /* Indicate clickability */
-    font-size: 1.2rem; /* Size for close button */
+/* Task item completed styles */
+.step-item.completed-task {
+    background-color: #f0f4ff;
 }
 
-.task-steps {
-    margin-bottom: 20px; /* Space below steps */
+.step-item.completed-task label {
+    text-decoration: line-through;
+    color: #777;
 }
 
-.task-steps ul {
-    list-style-type: none; /* No bullet points */
-    padding: 0; /* Remove padding */
+.step-item input[type="checkbox"] {
+    appearance: none; 
+    width: 16px; 
+    height: 16px; 
+    margin-right: 8px;
+    border: 2px solid #222; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    position: relative; 
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s; 
 }
 
-.task-steps li {
-    background: #f0f4ff; /* Light background for steps */
-    padding: 8px; /* Padding for steps */
-    border-radius: 4px; /* Rounded corners */
-    margin-bottom: 5px; /* Space between steps */
+.step-item input[type="checkbox"]:checked {
+    background-color: #005baf; 
+    border-color: #005baf; 
 }
 
-.task-options {
-    margin-top: 20px; /* Space above options */
+.step-item input[type="checkbox"]:checked::after {
+    content: '✓'; 
+    position: absolute; 
+    top: -1px; 
+    left: 3px; 
+    color: white; 
+    font-size: 10px; 
 }
 
-.add-to-my-day {
-    padding: 10px 15px; /* Padding for button */
-    border: none;
-    background-color: #0078d7; /* Primary color */
-    color: white;
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Indicate clickability */
-    transition: background-color 0.3s; /* Smooth transition */
+.step-item input[type="text"] {
+    border: 1px solid #ccc; 
+    border-radius: 3px; 
+    padding: 4px; 
+    width: 150px; 
+    margin-left: 10px; 
 }
 
-.add-to-my-day:hover {
-    background-color: #005bb5; /* Darker shade on hover */
+.step-item input[type="text"]:focus {
+    border-color: #28a745; 
+    outline: none; 
 }
 
-.task-due-date,
-.task-repeat {
-    margin-top: 10px; /* Space above sections */
+.step-item label {
+    margin-left: 10px;
+    font-size: 1rem;
+    color: #333;
 }
 
-.task-footer {
-    margin-top: 20px; /* Space above footer */
+/* Task Container 2 Styles */
+.task-details-container .task-container-2 {
+    padding: 14px;
+    margin: 12px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     display: flex;
-    justify-content: space-between; /* Space between elements */
-    align-items: center; /* Center alignment */
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
 }
 
-.delete-task {
-    background: red; /* Red for delete button */
-    color: white;
-    padding: 10px 15px; /* Padding for button */
+.task-details-container .task-container-2 i, i.sun {
+    margin-right: 14px;
+    font-size: 1.2rem; 
+}
+
+
+.task-details-container .task-container-2 i.x {
+    margin-left: auto;
+    font-size: 1.2rem; 
+}
+
+.task-details-container .task-container-2:hover {
+    color: #253892;
+}
+
+/* Action Container Styles */
+.action-container {
+    padding: 2px;
+    margin: 12px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly; 
+}
+
+.action-container-item {
+    margin: 14px; 
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    cursor: pointer;
+}
+
+.action-container-item i {
+    margin-right: 14px; 
+    font-size: 1.2rem;
+    cursor: pointer; 
+}
+
+.action-container-item i.repeat{
+    margin-right: 12px;
+    font-size: 1.1rem;
+}
+
+.action-container-item:hover {
+    color: #253892; 
+}
+
+/* Textarea Styles */
+.task-container textarea {
+    width: 93%;
+    padding: 12px;
+    background-color: #fff;
     border: none;
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Indicate clickability */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    color: #333;
+    resize: none;
+    outline: none;
 }
 
-.delete-task:hover {
-    background: darkred; /* Darker red on hover */
+.task-container textarea:focus {
+    background-color: #fff;
+    border-color: #999;
+
 }
 
-.task-steps input {
-    width: 100%; /* Full width input */
-    padding: 8px; /* Padding for input */
-    border: 1px solid #ccc; /* Border for input */
-    border-radius: 4px; /* Rounded corners */
-    margin-top: 5px; /* Space above input */
+.task-container textarea::placeholder {
+    color: #aaa;
 }
 
-.task-due-date input,
-.task-repeat select {
-    width: 100%; /* Full width input/select */
-    padding: 8px; /* Padding for input/select */
-    border: 1px solid #ccc; /* Border for input/select */
-    border-radius: 4px; /* Rounded corners */
-    margin-top: 5px; /* Space above input/select */
+/* Repeat Styles */
+.repeat-options {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 150px;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.repeat-option {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.repeat-option:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+
+
