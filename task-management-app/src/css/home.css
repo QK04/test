@@ -279,18 +279,18 @@
     border-radius: 10px;
 }
 
+/* Content Section Styles */
 .content {
     text-align: center;
     padding: 20px;
     margin-top: 70px;
     transition: margin-left 0.3s ease, width 0.3s ease;
     background-color: #e6f1f8;
-    min-height: 100vh;
+    min-height: calc(100vh - 70px);
     width: 100%;
 }
 
 .content.shift-right {
     margin-left: 300px;
     width: calc(100% - 300px); /* Adjust the width when shifted */
-
 }

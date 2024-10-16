@@ -39,11 +39,49 @@ export const TaskProvider = ({children}) => {
         );
     };
 
+    // Adding task to MyDay page
+    const addMyDay = (taskId) => {
+        setTasks((prevTasks) => 
+            prevTasks.map((task) => 
+                task.id === taskId ? {...task, myDay: !task.myDay} : task
+            )
+        );
+    };
+
+
+    // Adding due date for tasks
+    const setDueDate = (taskId, dueDate) => {
+        setTasks((prevTasks) =>
+            prevTasks.map((task) => 
+                task.id === taskId ? {...task, dueDate} : task
+            )
+        );
+    };
+
+    // Adding subtasks for tasks
+    const addStep = (taskId, step) => {
+        setTasks((prevTasks) =>
+            prevTasks.map((task) =>
+                task.id === taskId ? {...task, steps: [...task.steps, {name: step, completed: false}]} : task
+            )
+        );
+    };
+
+    // Adding repeat schedule option for tasks 
+    const setRepeat = (taskId, repeat) => {
+        setTasks((prevTasks) =>
+            prevTasks.map((task) => 
+                task.id === taskId ? {...task, repeat} : task
+            )
+        );
+    };
+
+
     // Get list of bookmarked tasks
     const bookmarkedTasks = tasks.filter(task => task.bookmarked);
 
     return(
-        <TaskContext.Provider value={{tasks, addTask, addImportantTask, toggleTask, toggleBookmark, bookmarkedTasks}}>
+        <TaskContext.Provider value={{tasks, addTask, addImportantTask, addMyDay, addStep, setDueDate, setRepeat, toggleTask, toggleBookmark, bookmarkedTasks}}>
             {children}
         </TaskContext.Provider>
     );

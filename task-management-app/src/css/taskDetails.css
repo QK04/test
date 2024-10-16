@@ -1,0 +1,96 @@
+.task-details {
+    padding: 20px; /* Padding for content */
+    background: #ffffff; /* Background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.task-details-header {
+    display: flex;
+    justify-content: space-between; /* Space between name and close button */
+    align-items: center;
+    margin-bottom: 20px; /* Space below the header */
+}
+
+.close-details {
+    background: transparent;
+    border: none;
+    cursor: pointer; /* Indicate clickability */
+    font-size: 1.2rem; /* Size for close button */
+}
+
+.task-steps {
+    margin-bottom: 20px; /* Space below steps */
+}
+
+.task-steps ul {
+    list-style-type: none; /* No bullet points */
+    padding: 0; /* Remove padding */
+}
+
+.task-steps li {
+    background: #f0f4ff; /* Light background for steps */
+    padding: 8px; /* Padding for steps */
+    border-radius: 4px; /* Rounded corners */
+    margin-bottom: 5px; /* Space between steps */
+}
+
+.task-options {
+    margin-top: 20px; /* Space above options */
+}
+
+.add-to-my-day {
+    padding: 10px 15px; /* Padding for button */
+    border: none;
+    background-color: #0078d7; /* Primary color */
+    color: white;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Indicate clickability */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.add-to-my-day:hover {
+    background-color: #005bb5; /* Darker shade on hover */
+}
+
+.task-due-date,
+.task-repeat {
+    margin-top: 10px; /* Space above sections */
+}
+
+.task-footer {
+    margin-top: 20px; /* Space above footer */
+    display: flex;
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Center alignment */
+}
+
+.delete-task {
+    background: red; /* Red for delete button */
+    color: white;
+    padding: 10px 15px; /* Padding for button */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Indicate clickability */
+}
+
+.delete-task:hover {
+    background: darkred; /* Darker red on hover */
+}
+
+.task-steps input {
+    width: 100%; /* Full width input */
+    padding: 8px; /* Padding for input */
+    border: 1px solid #ccc; /* Border for input */
+    border-radius: 4px; /* Rounded corners */
+    margin-top: 5px; /* Space above input */
+}
+
+.task-due-date input,
+.task-repeat select {
+    width: 100%; /* Full width input/select */
+    padding: 8px; /* Padding for input/select */
+    border: 1px solid #ccc; /* Border for input/select */
+    border-radius: 4px; /* Rounded corners */
+    margin-top: 5px; /* Space above input/select */
+}

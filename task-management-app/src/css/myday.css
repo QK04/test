@@ -1,9 +1,14 @@
-.my-day-container{
+.my-day-container {
     background-color: #e3f2fc;
     height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: margin-left 0.3s ease-;
+}
+
+.my-day-container.shifted {
+    margin-right: 300px;
 }
 
 /* Header section */
@@ -13,6 +18,7 @@
     text-align: left;
     margin-left: 10px;
     width: calc(100% - 60px);
+    height: 70px;
   }
   
 .my-day-header p {
@@ -22,7 +28,7 @@
 }
 
 /* Task list Styles */
-.task-list{
+.task-list {
     flex-grow: 1;
     overflow-y: auto;
     margin-left: 30px;
@@ -30,7 +36,7 @@
 }
 
 /* Task item styles */
-.task-item{
+.task-item {
     display: flex;
     align-items: center;
     padding: 12px;
@@ -40,6 +46,7 @@
     margin-bottom: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     width: calc(100% - 90px);
+    cursor: pointer; 
 }
 
 /* Task item completed styles */
@@ -70,11 +77,13 @@
 /* Completed section styles */
 .completed-section {
     margin-top: 20px; 
-    background-color: #e3f2fc; 
-    border: 1px solid #c8e4f5; 
-    border-radius: 5px; 
+    border: none; 
     padding: 10px; 
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+}
+
+.task-item.completed-task {
+    background-color: #f0f4ff;
+    width: calc(100% - 90px); /* Adjust to match other task items */
 }
 
 .completed-header {
@@ -131,6 +140,26 @@
     margin-right: 10px;
 }
 
-.task-input i:hover{
+.task-input i:hover {
     color: #0078d7
 }
+
+/* Task Details Sidebar */
+.task-details-section {
+    width: 300px;
+    height: 100%;
+    margin-top: 70px;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+    z-index: 10;
+}
+
+.task-details-section.active {
+    transform: translateX(0);
+}
+
