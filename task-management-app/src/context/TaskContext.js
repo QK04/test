@@ -10,6 +10,7 @@ export const TaskProvider = ({children}) => {
 
     const addTask = (task, dueDate = null, files=[], note="") => {
         if(task.trim()) {
+            const formatDueDate = dueDate ? new Date(dueDate).toISOString() : null;
             setTasks([...tasks, 
                 {
                     id: Date.now(), 
@@ -18,7 +19,7 @@ export const TaskProvider = ({children}) => {
                     bookmarked: false, 
                     steps: [],
                     myDay: false,
-                    dueDate,
+                    dueDate: formatDueDate,
                     files,
                     note,
                 }])

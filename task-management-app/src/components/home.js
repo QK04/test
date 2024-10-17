@@ -3,6 +3,7 @@ import '../css/home.css';
 import { Link } from "react-router-dom";
 import MyDay from "./MyDay";
 import Important from "./Important";
+import Planned from "./Planned";
 
 function Home() {
   // Create a reference for navbar
@@ -15,7 +16,7 @@ function Home() {
   const backgroundColorContent = {
     'My Day': '#e6f1f8',
     'Important': '#ffebee',
-    'Planned': '#ffe0b2',
+    'Planned': '#d8f9da',
     'Tasks': '#f1f8e9'
   };
 
@@ -35,6 +36,8 @@ function Home() {
         return <MyDay />;
       case 'Important':
         return <Important />;
+      case 'Planned':
+        return <Planned/>;
       default:
         return <h2>Welcome to Task Management</h2>;
     }

@@ -61,9 +61,14 @@
     border-color: #005baf; 
 }
 
-.important-container .task-inline input[type="checkbox"]:checked, .step-item input[type="checkbox"]:checked {
+.important-container .task-inline input[type="checkbox"]:checked {
     background-color: #ef4d79; 
     border-color: #ef4d79; 
+}
+
+.planned-container .task-inline input[type="checkbox"]:checked {
+    background-color: #4CE474; 
+    border-color: #4CE474; 
 }
 
 .task-inline input[type="checkbox"]:checked::after {
@@ -170,6 +175,11 @@
 .important-container .step-item input[type="checkbox"]:checked {
     background-color: #ef4d79; 
     border-color: #ef4d79; 
+}
+
+.planned-container .step-item input[type="checkbox"]:checked {
+    background-color: #4CE474; 
+    border-color: #4CE474;
 }
 
 .step-item input[type="checkbox"]:checked::after {

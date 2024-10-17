@@ -1,0 +1,155 @@
+.planned-container {
+    background-color: #d8f9da; /* Change the background color as desired */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header section */
+.planned-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-size: 1.5rem;
+    text-align: left;
+    width: calc(100% - 10px);
+}
+
+.planned-header i {
+    color: #6f9e74; 
+    margin-left: 10px; 
+}
+
+.planned-header h2 {
+    color: #6f9e74; 
+    margin-left: 20px;
+}
+
+/* Task list Styles */
+.planned-container .task-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-left: 30px;
+    background-color: #d8f9da; 
+}
+
+/* Task item styles */
+.planned-container .task-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background-color: #fff;
+    border: 1px solid #4CE474; 
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 90px);
+}
+
+/* Task item completed styles */
+.planned-container .task-item.completed-task {
+    background-color: #fff;
+    margin-left: 0;
+}
+
+.planned-container .task-item.completed-task i {
+    text-decoration: none;
+}
+
+.planned-container .task-item.completed-task label {
+    text-decoration: line-through;
+    color: #777; 
+}
+
+.planned-container .task-item input[type="checkbox"] {
+    appearance: none; 
+    width: 20px; 
+    height: 20px; 
+    margin-right: 10px;
+    border: 2px solid #222; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    position: relative; 
+    outline: none;
+}
+
+.planned-container .task-item input[type="checkbox"]:checked {
+    background-color: #4CE474; 
+    border-color: #4CE474; 
+    
+}
+
+.planned-container .task-item label {
+    font-size: 1.1rem;
+    color: #333; 
+}
+
+/* Due Date Styles */
+.due-date-section {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.due-date-header {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #000;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.due-date-header i {
+    margin-right: 10px;
+    color: #000;
+}
+
+.due-date-task input[type="checkbox"] {
+    filter: none;
+}
+
+
+/* Bookmark icon */
+.planned-container .bookmarked {
+    color: #4CE474; 
+}
+
+/* Task Input Container */
+.planned-container .task-input {
+    background-color: #fff; 
+    padding: 8px; 
+    margin-left: 30px;
+    margin-bottom: 10px;
+    position: sticky;
+    bottom: 0;
+    width: calc(100% - 140px);
+    display: flex;
+    align-items: center; 
+    border: 1px solid #4CE474; 
+    border-radius: 5px; 
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.planned-container .task-input input {
+    flex: 1;
+    padding: 12px 0;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    position: relative;
+}
+
+.planned-container .task-input i {
+    color: #000; 
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.planned-container .task-input i:hover {
+    color: #4CE474; 
+}

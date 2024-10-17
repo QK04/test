@@ -3,7 +3,7 @@ import { useTasks } from "../context/TaskContext";
 import "../css/taskDetails.css"
 
 const TaskDetails = ({ task, closeDetails }) => {
-    const { tasks,setTasks, addMyDay, addFile, addNote, toggleMyDay, setDueDate, addStep, deleteStep, toggleStep, setRepeat, deleteTask, toggleTask, toggleBookmark, updateTaskName, updateStepName } = useTasks();
+    const { setTasks, addMyDay, addFile, addNote, toggleMyDay, setDueDate, addStep, deleteStep, toggleStep, setRepeat, deleteTask, toggleTask, toggleBookmark, updateTaskName, updateStepName } = useTasks();
     const [newStep, setNewStep] = useState('');
     const [currentTask, setCurrentTask] = useState(task);
     const [isEditingTaskName, setIsEditingTaskName] = useState(false);
@@ -143,7 +143,12 @@ const TaskDetails = ({ task, closeDetails }) => {
     const renderDueDate = () => {
         if (!dueDate) 
             return null; // If no due date, nothing is rendered
-        const formattedDate = new Date(dueDate).toLocaleDateString(); 
+        const formattedDate = new Date(dueDate).toLocaleDateString('en-US', {
+            weekday: 'short',
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+        }); 
         return `Due ${formattedDate}`;
     };
 

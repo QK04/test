@@ -5,7 +5,7 @@ import TaskDetails from './TaskDetails';
 
 function MyDay() {
   // State to hold tasks
-  const {tasks, selectedTask, addTask, setTasks, addMyDay, openTaskDetails, closeTaskDetails, toggleTask, toggleBookmark, getStepsInfo } = useTasks(); // export as an object to use for useTasks()
+  const {tasks, selectedTask, addTask, setTasks, openTaskDetails, closeTaskDetails, toggleTask, toggleBookmark, getStepsInfo } = useTasks(); // export as an object to use for useTasks()
   const [newTask, setNewTask] = useState('');
   const [isCompletedVisible, setIsCompletedVisible] = useState(true);
 
@@ -44,6 +44,7 @@ function MyDay() {
   return (
     <div className='my-day-container'>
       <div className='my-day-header'>
+        {console.log("Current Date:", currentDate)}
         <h2>My Day</h2>
         <p>{currentDate}</p>
       </div>

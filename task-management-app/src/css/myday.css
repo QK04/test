@@ -7,7 +7,7 @@
     transition: margin-left 0.3s ease-;
 }
 
-.my-day-container.shifted {
+.shifted {
     margin-right: 400px;
 }
 
@@ -18,8 +18,8 @@
     text-align: left;
     margin-left: 10px;
     width: calc(100% - 60px);
-    height: 70px;
-  }
+    height: fit-content;
+}
   
 .my-day-header p {
     font-size: 1rem;

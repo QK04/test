@@ -5,7 +5,7 @@ import TaskDetails from './TaskDetails';
 
 function Important() {
   // State to hold tasks
-  const { tasks, bookmarkedTasks, selectedTask, addImportantTask, toggleTask, toggleBookmark, getStepsInfo, openTaskDetails, closeTaskDetails } = useTasks();
+  const { bookmarkedTasks, selectedTask, addImportantTask, toggleTask, toggleBookmark, getStepsInfo, openTaskDetails, closeTaskDetails } = useTasks();
   const [newTask, setNewTask] = useState('');
   const [isCompletedVisible, setIsCompletedVisible] = useState(true);
 
