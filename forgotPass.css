@@ -1,0 +1,222 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  .header img{
+    height: 40px; 
+    margin-right: 10px; 
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+  
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    background-image: url("image/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow-y: hidden;
+  }
+  
+  .container {
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    background: #ffffff;
+    padding: 2rem;
+    padding-top: 3rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+  .return-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #253892;
+    border-radius: 50%;
+    text-decoration: none;
+  }
+  .return-btn:hover{
+    background-color: #0056b3;
+  }
+  .return-btn svg {
+    fill: #ffffff;
+  }
+ 
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #253892;
+  }
+  
+  p {
+    margin-bottom: 1.5rem;
+    color: #666666;
+    font-size: 0.9rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #333333;
+  }
+  
+  input[type="email"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #253892;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .pagination {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  
+  .page-btn {
+    width: 36px;
+    height: 36px;
+    background-color: #253892;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .page-btn:hover {
+    background-color: #0056b3;
+  }
+  @media (max-width: 768px) {
+    .container {
+      padding: 1.5rem;
+      padding-top: 2.5rem;
+    }
+    
+    h2 {
+      font-size: 1.3rem;
+    }
+    
+    p, label {
+      font-size: 0.85rem;
+    }
+    
+    input[type="email"] {
+      padding: 0.6rem;
+      font-size: 0.9rem;
+    }
+    
+    button {
+      padding: 0.6rem;
+      font-size: 0.9rem;
+    }
+  
+    .return-btn {
+      top: 15px;
+      left: 15px;
+      width: 32px;
+      height: 32px;
+    }
+    
+    .return-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .pagination {
+      gap: 0.3rem;
+    }
+  
+    .page-btn {
+      width: 32px;
+      height: 32px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 1rem;
+      padding-top: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.2rem;
+    }
+  
+    p, label {
+      font-size: 0.8rem;
+    }
+    
+    input[type="email"] {
+      padding: 0.5rem;
+      font-size: 0.85rem;
+    }
+    
+    button {
+      padding: 0.5rem;
+      font-size: 0.85rem;
+    }
+  
+    .return-btn {
+      top: 10px;
+      left: 10px;
+      width: 28px;
+      height: 28px;
+    }
+  
+    .return-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+  
+    .page-btn {
+      width: 28px;
+      height: 28px;
+      font-size: 0.8rem;
+    }
+}
+  
+  
