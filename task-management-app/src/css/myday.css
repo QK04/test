@@ -39,7 +39,8 @@
 .task-item {
     display: flex;
     align-items: center;
-    padding: 12px;
+    justify-content: flex-start;
+    padding: 10px;
     background-color: #fff;
     border: 1px solid #c8e4f5;
     border-radius: 5px;
@@ -49,6 +50,38 @@
     cursor: pointer;
     flex-wrap: wrap; 
 }
+
+/* Task info styles */
+.task-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.task-content .fa-star {
+    margin-left: auto; 
+    margin-right: 10px;
+}
+
+.task-info {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;  /* Align the task-info to the most-left */
+}
+
+/* Task meta styles */
+.task-meta {
+    color: gray;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+  
+.task-meta span {
+    margin-right: 10px;
+}
+
 
 /* Task item completed styles */
 .task-item.completed-task {

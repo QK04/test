@@ -5,7 +5,7 @@ import TaskDetails from './TaskDetails';
 
 function MyDay() {
   // State to hold tasks
-  const {tasks, selectedTask, addTask, setTasks, addMyDay, openTaskDetails, closeTaskDetails, toggleTask, toggleBookmark } = useTasks(); // export as an object to use for useTasks()
+  const {tasks, selectedTask, addTask, setTasks, addMyDay, openTaskDetails, closeTaskDetails, toggleTask, toggleBookmark, getStepsInfo } = useTasks(); // export as an object to use for useTasks()
   const [newTask, setNewTask] = useState('');
   const [isCompletedVisible, setIsCompletedVisible] = useState(true);
 
@@ -49,28 +49,44 @@ function MyDay() {
       </div>
 
       <div className='task-list'>
-        {tasks.filter(task => task.myDay && !task.completed).map((task) => (
+        {tasks.filter(task => task.myDay && !task.completed).map((task) => {
+            const { stepsTotal, stepsCompleted } = getStepsInfo(task.steps || []);
+            return(
             <div key={task.id} className="task-item" onClick={(e) => { 
                 // Check if the clicked target is not the checkbox
                 if (e.target.tagName !== 'INPUT') {
-                openTaskDetails(task);
+                  openTaskDetails(task, 'my-day-container', 'task-details-section');
                 }
-              }}
-            >
+              }}>
+
               <input 
                 type="checkbox" 
                 id={`task-${task.id}`} 
                 checked={task.completed}
                 onChange={()=> toggleTask(task.id)}
               />
-              <label htmlFor={`task-${task.id}`}>{task.name}</label>
-              <i
-                className={`fa${task.bookmarked ? '-solid' : '-regular'} fa-star ${task.bookmarked ? 'bookmarked' : ''}`}
-                onClick={(e) => {e.stopPropagation(); toggleBookmark(task.id)}}
-                style={{ marginLeft: 'auto', cursor: 'pointer' }}
-              ></i>
+              
+              <div className="task-content">
+                <div className="task-info">
+                  <label htmlFor={`task-${task.id}`}>{task.name}</label>
+                  <div className="task-meta">
+                    {task.myDay && <span>☀ My Day</span>}
+                    <span>• Tasks</span>
+                    <span>• {stepsCompleted} of {stepsTotal}</span>
+                    {task.dueDate && <span>• 📅 {new Date(task.dueDate).toLocaleDateString()}</span>}
+                    {task.repeat && <span>• 🔁 {task.repeat}</span>}
+                    {task.note && <span>• 📝</span>}
+                  </div>
+                </div>
+                <i
+                  className={`fa${task.bookmarked ? '-solid' : '-regular'} fa-star  ${task.bookmarked ? 'bookmarked' : ''}`}
+                  onClick={(e) => {e.stopPropagation(); toggleBookmark(task.id)}}
+                  style={{ cursor: 'pointer' }}
+                ></i>
+              </div>
             </div>
-          ))}
+            );
+          })}
 
         {tasks.filter(task => task.myDay && task.completed).length > 0 && (
           <div className="completed-section">
@@ -80,26 +96,42 @@ function MyDay() {
                 Completed {tasks.filter(task => task.completed).length}
               </span>
             </div>
-            {isCompletedVisible && tasks.filter(task => task.myDay && task.completed).map((task) => (
+            {isCompletedVisible && tasks.filter(task => task.myDay && task.completed).map((task) => {
+              const { stepsTotal, stepsCompleted } = getStepsInfo(task.steps || []);
+              return (
               <div key={task.id} className="task-item completed-task" onClick={(e) => { 
                 if (e.target.tagName !== 'INPUT') {
-                openTaskDetails(task);
+                  openTaskDetails(task, 'my-day-container', 'task-details-section');
                 }
-              }}>
+                }}>
                 <input 
                   type="checkbox" 
                   id={`completed-task-${task.id}`} 
                   checked={task.completed}
                   onChange={()=> toggleTask(task.id)}
                 />
-                <label htmlFor={`completed-task-${task.id}`}>{task.name}</label>
-                <i
-                  className={`fa${task.bookmarked ? '-solid' : '-regular'} star-icon fa-star ${task.bookmarked ? 'bookmarked' : ''}`}
-                  onClick={(e) => {e.stopPropagation(); toggleBookmark(task.id)}}
-                  style={{ marginLeft: 'auto', cursor: 'pointer' }}
-                ></i>
+                
+                <div className="task-content">
+                  <div className="task-info">
+                    <label htmlFor={`completed-task-${task.id}`}>{task.name}</label>
+                    <div className="task-meta">
+                      {task.myDay && <span>☀ My Day</span>}
+                      <span>• Tasks</span>
+                      <span>• {stepsCompleted} of {stepsTotal}</span>
+                      {task.dueDate && <span>• 📅 {new Date(task.dueDate).toLocaleDateString()}</span>}
+                      {task.repeat && <span>• 🔁 {task.repeat}</span>}
+                      {task.note && <span>• 📝</span>}
+                    </div>
+                  </div>
+                  <i
+                    className={`fa${task.bookmarked ? '-solid' : '-regular'} fa-star ${task.bookmarked ? 'bookmarked' : ''}`}
+                    onClick={(e) => {e.stopPropagation(); toggleBookmark(task.id)}}
+                    style={{ cursor: 'pointer' }}
+                  ></i>
+                </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>
@@ -119,7 +151,10 @@ function MyDay() {
         {selectedTask && (
           <>
           {console.log("Selected Task:", selectedTask)}
-          <TaskDetails task={selectedTask} closeDetails={closeTaskDetails}/>
+          <TaskDetails 
+            task={selectedTask} 
+            closeDetails={() => closeTaskDetails('my-day-container', 'task-details-section')}
+          />
            </>
         )}
       </div>

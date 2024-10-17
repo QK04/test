@@ -8,21 +8,7 @@ export const TaskProvider = ({children}) => {
     const[tasks, setTasks] = useState([]);
     const [selectedTask, setSelectedTask] = useState(null);
 
-    // Adding task to everything
-    // const addTask = (task) => {
-    //     if(task.trim()) {
-    //         setTasks([...tasks, 
-    //             {
-    //                 id: Date.now(), 
-    //                 name: task, 
-    //                 completed: false, 
-    //                 bookmarked: false, 
-    //                 steps: [],
-    //                 myDay: false,
-    //             }])
-    //     }
-    // }
-    const addTask = (task, dueDate = null) => {
+    const addTask = (task, dueDate = null, files=[], note="") => {
         if(task.trim()) {
             setTasks([...tasks, 
                 {
@@ -33,11 +19,13 @@ export const TaskProvider = ({children}) => {
                     steps: [],
                     myDay: false,
                     dueDate,
+                    files,
+                    note,
                 }])
         }
     }
     // Adding task to Important
-    const addImportantTask = (task) => {
+    const addImportantTask = (task, dueDate = null, files=[], note="") => {
         if(task.trim()){
             setTasks([...bookmarkedTasks, 
                 {
@@ -46,7 +34,10 @@ export const TaskProvider = ({children}) => {
                     completed: false, 
                     bookmarked: true, 
                     steps: [],
-                    myDay: false
+                    myDay: false,
+                    dueDate,
+                    files,
+                    note,
                 }])
         }
     }
@@ -93,34 +84,35 @@ export const TaskProvider = ({children}) => {
     };
 
     // Pop up the Task Details
-    const openTaskDetails = (task) => {
+    const openTaskDetails = (task, containerClass, detailsClass) => {
         if (selectedTask && selectedTask === task) {
-          closeTaskDetails();
-        } else {
+          return;
+        } 
+
           setSelectedTask(task);
-          const myDayContainer = document.querySelector('.my-day-container');
-          const taskDetailsSection = document.querySelector('.task-details-section');
+          const myDayContainer = document.querySelector(`.${containerClass}`);
+          const taskDetailsSection = document.querySelector(`.${detailsClass}`);
       
           if (myDayContainer && taskDetailsSection) {
               myDayContainer.classList.add('shifted');
               taskDetailsSection.classList.add('active');
           } else {
-              console.error('Element not found: myDayContainer or taskDetailsSection');
+              console.error(`Element not found: ${containerClass} or ${detailsClass}`);
           }
-        }  
+    
       };
 
     // Close the Pop Up Task Details
-    const closeTaskDetails = () => {
+    const closeTaskDetails = (containerClass, detailsClass) => {
         setSelectedTask(null);
-        const myDayContainer = document.querySelector('.my-day-container');
-        const taskDetailsSection = document.querySelector('.task-details-section');
-    
-        if (myDayContainer && taskDetailsSection) {
-            myDayContainer.classList.remove('shifted'); 
-            taskDetailsSection.classList.remove('active'); 
+        const container = document.querySelector(`.${containerClass}`);
+        const detailsSection = document.querySelector(`.${detailsClass}`);
+      
+        if (container && detailsSection) {
+          container.classList.remove('shifted'); 
+          detailsSection.classList.remove('active'); 
         } else {
-            console.error('Element not found: myDayContainer or taskDetailsSection');
+          console.error(`Element not found: ${containerClass} or ${detailsClass}`);
         }
       };
 
@@ -204,6 +196,30 @@ export const TaskProvider = ({children}) => {
         );
     };
 
+    // Handle adding a file to a task
+    const addFile = (taskId, file) => {
+        setTasks(prevTasks => 
+            prevTasks.map((task) => 
+                task.id === taskId ? {...task, files: [...task.files, file]} : task
+            )
+        );
+    };
+
+    // Handle adding a note to a task
+    const addNote = (taskId, note) => {
+        setTasks(prevTasks => 
+            prevTasks.map(task => 
+                task.id === taskId ? {...task, note} : task
+            )
+        );
+    };
+
+    // Handle calculating steps total and completed 
+    const getStepsInfo = (steps = []) => {
+        const stepsTotal = steps.length;
+        const stepsCompleted = steps.filter(step => step.completed).length;
+        return { stepsTotal, stepsCompleted }
+    }
     // Get list of bookmarked tasks
     const bookmarkedTasks = tasks.filter(task => task.bookmarked);
 
@@ -214,6 +230,8 @@ export const TaskProvider = ({children}) => {
                 selectedTask , 
                 bookmarkedTasks, 
                 addTask,
+                addFile, 
+                addNote,
                 setTasks,
                 deleteTask, 
                 addImportantTask, 
@@ -223,13 +241,14 @@ export const TaskProvider = ({children}) => {
                 toggleMyDay, 
                 addStep, 
                 toggleStep, 
-                deleteStep, 
+                deleteStep,
+                getStepsInfo, 
                 setDueDate, 
                 setRepeat,
                 toggleTask, 
                 toggleBookmark, 
                 updateTaskName, 
-                updateStepName 
+                updateStepName, 
                 }}>
             {children}
         </TaskContext.Provider>

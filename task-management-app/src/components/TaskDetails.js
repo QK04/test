@@ -3,7 +3,7 @@ import { useTasks } from "../context/TaskContext";
 import "../css/taskDetails.css"
 
 const TaskDetails = ({ task, closeDetails }) => {
-    const { tasks, addMyDay, toggleMyDay, setDueDate, addStep, deleteStep, toggleStep, setRepeat, deleteTask, toggleTask, toggleBookmark, updateTaskName, updateStepName } = useTasks();
+    const { tasks,setTasks, addMyDay, addFile, addNote, toggleMyDay, setDueDate, addStep, deleteStep, toggleStep, setRepeat, deleteTask, toggleTask, toggleBookmark, updateTaskName, updateStepName } = useTasks();
     const [newStep, setNewStep] = useState('');
     const [currentTask, setCurrentTask] = useState(task);
     const [isEditingTaskName, setIsEditingTaskName] = useState(false);
@@ -19,6 +19,9 @@ const TaskDetails = ({ task, closeDetails }) => {
     const [showRepeatOptions, setShowRepeatOptions] = useState(false);
     const repeatOptions = ['None', 'Daily', 'Weekday', 'Weekly', 'Monthly', 'Yearly', 'Custom'];
 
+    // State to work with file and note 
+    const [newFile, setNewFile] = useState(null);
+    const [note, setNote] = useState(currentTask.note || "");
 
     // useEffect to update local state whenever the task prop changes
     useEffect(() => {
@@ -26,6 +29,7 @@ const TaskDetails = ({ task, closeDetails }) => {
         setEditedTaskName(task.name);
         setEditedStepNames(task.steps.map(step => step.name));
         setDueDateInput(task.dueDate || '');
+        setNote(task.note || "");
     }, [task]);
 
     const handleAddStep = () => {
@@ -163,6 +167,39 @@ const TaskDetails = ({ task, closeDetails }) => {
                 ))}
             </div>
         );
+    };
+
+    // Handle adding file 
+    const handleAddFile = (e) => {
+        const file = e.target.files[0];
+        if(file) {
+            addFile(currentTask.id, file);
+            setCurrentTask(prev => ({...prev, files: [...prev.files, file]}));
+            setNewFile(null);
+        }
+    }
+
+    // Handle deleting file
+    const handleDeleteFile = (fileIndex) => {
+        const updatedFiles = currentTask.files.filter((_, index) => index !== fileIndex);
+    
+        // Use context to update the tasks
+        setTasks((prevTasks) => 
+            prevTasks.map((task) => 
+                task.id === currentTask.id ? { ...task, files: updatedFiles } : task
+            )
+        );
+
+        setCurrentTask((prevTask) => {
+            return {...prevTask, files: updatedFiles};
+        });
+    };
+
+    // Handle adding note
+    const handleNoteChange = (e) => {
+        const newNote = e.target.value;
+        setNote(newNote);
+        addNote(currentTask.id, newNote);
     };
 
     return (
@@ -312,12 +349,32 @@ const TaskDetails = ({ task, closeDetails }) => {
                 {renderRepeatOptions()}
             </div>
 
-            <div className="task-container-2">
-                <i className="fa-regular fa-file" onClick={() => console.log("Add File clicked")}></i> Add File
+            <div className="file-container">
+            {currentTask.files && currentTask.files.length > 0 && (
+                <div className="file-list">
+                    <ul>
+                        {currentTask.files.map((file, index) => (
+                            <li key={index} className="file-item">
+                                <a 
+                                    href={URL.createObjectURL(file)} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                >{file.name}</a>
+                                <i 
+                                    className="fa fa-trash" 
+                                    onClick={() => handleDeleteFile(index)} 
+                                ></i>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+                <input type="file" onChange={handleAddFile} />
             </div>
 
+
             <div className="task-container">
-                <textarea placeholder="Add note"></textarea>
+                <textarea placeholder="Add note" value={note} onChange={handleNoteChange}></textarea>
             </div>
 
             <div className="delete-task-container" onClick={handleDeleteTask} style={{marginTop: '50px', cursor: 'pointer', color: 'red', position: 'sticky', bottom: '0'}}>
