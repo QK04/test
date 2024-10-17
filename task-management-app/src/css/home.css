@@ -122,12 +122,12 @@
     width: 300px; 
     background-color: #ffffff;
     position: fixed;
-    left: -350px; /* Hidden to the left*/
+    left: -350px; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: 0.3s; /* Transition for showing/hiding */
+    transition: 0.3s; 
     overflow-y: auto;
     padding-bottom: 15px; 
 }
@@ -203,6 +203,12 @@
     background-color: #77CDFF;
 }
 
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; 
+}
+
 /* Search Bar style */
 .search-container {
     padding: 10px 20px;
@@ -252,11 +258,13 @@
 
 /* Styles for the 'New list' and 'Create a new group' section */
 .new-section {
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
     flex-shrink: 0;
+    background-color: #ffffff;
 }
 
 .new-section a {

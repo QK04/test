@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import MyDay from "./MyDay";
 import Important from "./Important";
 import Planned from "./Planned";
+import AllTasks from "./AllTasks";
 
 function Home() {
   // Create a reference for navbar
@@ -17,7 +18,7 @@ function Home() {
     'My Day': '#e6f1f8',
     'Important': '#ffebee',
     'Planned': '#d8f9da',
-    'Tasks': '#f1f8e9'
+    'Tasks': '#3697c6'
   };
 
   const backgroundColor = backgroundColorContent[content] || '#e6f1f8';
@@ -38,6 +39,8 @@ function Home() {
         return <Important />;
       case 'Planned':
         return <Planned/>;
+      case 'Tasks':
+        return <AllTasks/>;
       default:
         return <h2>Welcome to Task Management</h2>;
     }
@@ -77,19 +80,24 @@ function Home() {
           />
           <i className="fa-solid fa-magnifying-glass search-icon"></i>  
         </div>
-        <Link to="#" id='my-day-section' onClick={() => { setContent('My Day') }}>
-          <i className="fa-regular fa-sun"></i>My Day
-        </Link>
-        <Link to="#" id='important-section' onClick={() => { setContent('Important') }}>
-          <i className="fa-regular fa-star"></i>Important
-        </Link>
-        <Link to="#" id='planned-section' onClick={() => { setContent('Planned') }}>
-          <i className="fa-solid fa-pen"></i>Planned
-        </Link>
-        <Link to="#" id='tasks-section' onClick={() => { setContent('Tasks') }}>
-          <i className="fa-solid fa-house"></i>Tasks
-        </Link>
+
+        <div className="nav-links">
+          <Link to="#" id='my-day-section' onClick={() => { setContent('My Day') }}>
+            <i className="fa-regular fa-sun"></i>My Day
+          </Link>
+          <Link to="#" id='important-section' onClick={() => { setContent('Important') }}>
+            <i className="fa-regular fa-star"></i>Important
+          </Link>
+          <Link to="#" id='planned-section' onClick={() => { setContent('Planned') }}>
+            <i className="fa-solid fa-pen"></i>Planned
+          </Link>
+          <Link to="#" id='tasks-section' onClick={() => { setContent('Tasks') }}>
+            <i className="fa-solid fa-house"></i>Tasks
+          </Link>
+        </div>
+
         <div className="divider-line"></div>
+        
         <div className="new-section">
           <Link to="#" data-target="new-list"><i className="fas fa-plus"></i>New list</Link>
           <Link to="#" data-target="new-group"><i className="fas fa-copy"></i>New Group</Link>

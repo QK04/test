@@ -56,6 +56,7 @@ function Important() {
                 <div className="task-info">
                   <label htmlFor={`task-${task.id}`}>{task.name}</label>
                   <div className="task-meta">
+                    {task.myDay && <span>☀ My Day</span>}
                     <span>• Tasks</span>
                     <span>• {stepsCompleted} of {stepsTotal}</span>
                     {task.dueDate && <span>• 📅 {new Date(task.dueDate).toLocaleDateString()}</span>}

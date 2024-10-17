@@ -45,10 +45,10 @@ function Planned() {
                 const dueDate = new Date(task.dueDate).getTime();
     
                 if (dueDate < today) {
-                    dateLabel = "Overdue";
-                } else if (dueDate === today) {
+                    dateLabel = "Earlier";
+                } else if (dueDate >= today && dueDate < tomorrow) {
                     dateLabel = "Today";
-                } else if (dueDate === tomorrow) {
+                } else if (dueDate >= tomorrow) {
                     dateLabel = "Tomorrow";
                 } else {
                     dateLabel = new Date(task.dueDate).toLocaleDateString('en-US', {
@@ -107,6 +107,7 @@ function Planned() {
                                         <div className="task-info">
                                             <label htmlFor={`task-${task.id}`}>{task.name}</label>
                                             <div className="task-meta">
+                                                {task.myDay && <span>☀ My Day</span>}
                                                 <span>• Tasks</span>
                                                 <span>• {stepsCompleted} of {stepsTotal}</span>
                                                 {task.dueDate && <span>• 📅 {new Date(task.dueDate).toLocaleDateString()}</span>}

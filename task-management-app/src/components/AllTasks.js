@@ -1,21 +1,13 @@
 import {React, useState} from 'react';
-import "../css/myday.css";
+import "../css/alltasks.css";
 import { useTasks } from '../context/TaskContext';
 import TaskDetails from './TaskDetails';
 
-function MyDay() {
+function AllTasks() {
   // State to hold tasks
   const {tasks, selectedTask, addTask, setTasks, openTaskDetails, closeTaskDetails, toggleTask, toggleBookmark, getStepsInfo } = useTasks(); // export as an object to use for useTasks()
   const [newTask, setNewTask] = useState('');
   const [isCompletedVisible, setIsCompletedVisible] = useState(true);
-
-  // Get the current date
-  const currentDate = new Date().toLocaleDateString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
 
   // Handle adding a task 
   const handleAddTask = () => {
@@ -41,24 +33,22 @@ function MyDay() {
     setIsCompletedVisible(!isCompletedVisible);
   };
 
-  return (
-    <div className='my-day-container'>
-      <div className='my-day-header'>
-        <h2>My Day</h2>
-        <p>{currentDate}</p>
+  return (  
+    <div className='all-tasks-container'>
+      <div className='all-tasks-header'>
+        <i class="fa-solid fa-house"></i><h2>Tasks</h2>
       </div>
 
       <div className='task-list'>
-        {tasks.filter(task => task.myDay && !task.completed).map((task) => {
+        {tasks.filter(task => !task.completed).map((task) => {
             const { stepsTotal, stepsCompleted } = getStepsInfo(task.steps || []);
             return(
             <div key={task.id} className="task-item" onClick={(e) => { 
                 // Check if the clicked target is not the checkbox
                 if (e.target.tagName !== 'INPUT') {
-                  openTaskDetails(task, 'my-day-container', 'task-details-section');
+                  openTaskDetails(task, 'all-tasks-container', 'task-details-section');
                 }
               }}>
-
               <input 
                 type="checkbox" 
                 id={`task-${task.id}`} 
@@ -88,7 +78,7 @@ function MyDay() {
             );
           })}
 
-        {tasks.filter(task => task.myDay && task.completed).length > 0 && (
+        {tasks.filter(task => task.completed).length > 0 && (
           <div className="completed-section">
             <div className="completed-header" onClick={toggleCompletedSection}>
               <span>
@@ -96,12 +86,12 @@ function MyDay() {
                 Completed {tasks.filter(task => task.completed).length}
               </span>
             </div>
-            {isCompletedVisible && tasks.filter(task => task.myDay && task.completed).map((task) => {
+            {isCompletedVisible && tasks.filter(task => task.completed).map((task) => {
               const { stepsTotal, stepsCompleted } = getStepsInfo(task.steps || []);
               return (
               <div key={task.id} className="task-item completed-task" onClick={(e) => { 
                 if (e.target.tagName !== 'INPUT') {
-                  openTaskDetails(task, 'my-day-container', 'task-details-section');
+                  openTaskDetails(task, 'all-tasks-container', 'task-details-section');
                 }
                 }}>
                 <input 
@@ -153,7 +143,7 @@ function MyDay() {
           {console.log("Selected Task:", selectedTask)}
           <TaskDetails 
             task={selectedTask} 
-            closeDetails={() => closeTaskDetails('my-day-container', 'task-details-section')}
+            closeDetails={() => closeTaskDetails('all-tasks-container', 'task-details-section')}
           />
            </>
         )}
@@ -162,4 +152,4 @@ function MyDay() {
   );
 }
 
-export default MyDay;
+export default AllTasks;

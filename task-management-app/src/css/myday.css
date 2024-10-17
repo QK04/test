@@ -86,7 +86,9 @@
 /* Task item completed styles */
 .task-item.completed-task {
     background-color: #f0f4ff;
-}
+    margin-left: -10px;
+    width: calc(100% - 72px);
+}   
 
 .task-item.completed-task i {
     text-decoration: none;
@@ -136,20 +138,21 @@
     padding: 10px; 
 }
 
-.task-item.completed-task {
-    margin-left: -10px;
-    width: calc(100% - 72px); /* Adjust to match other task items */
-}
-
-
 .completed-header {
     cursor: pointer;
     display: flex;
     align-items: center;
     font-size: 1.2rem; 
     color: #000; 
-    margin-bottom: 10px; 
     text-align: left;
+    width: fit-content;
+    background-color: white; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    outline: none; 
+    border-radius: 5px; 
+    margin-bottom: 24px;
+    margin-left: -10px;
+    padding: 8px;
 }
 
 .completed-header i {

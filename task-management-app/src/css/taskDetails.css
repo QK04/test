@@ -71,6 +71,11 @@
     border-color: #4CE474; 
 }
 
+.all-tasks-container .task-inline input[type="checkbox"]:checked {
+    background-color: #3697c6; 
+    border-color: #3697c6; 
+}
+
 .task-inline input[type="checkbox"]:checked::after {
     content: '✓'; 
     position: absolute; 
@@ -180,6 +185,11 @@
 .planned-container .step-item input[type="checkbox"]:checked {
     background-color: #4CE474; 
     border-color: #4CE474;
+}
+
+.all-tasks-container .step-item input[type="checkbox"]:checked {
+    background-color: #3697c6;
+    border-color: #3697c6;
 }
 
 .step-item input[type="checkbox"]:checked::after {
