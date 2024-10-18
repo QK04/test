@@ -1,0 +1,229 @@
+.my-day-container {
+    background-color: #e3f2fc;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: margin-left 0.3s ease-;
+}
+
+.shifted {
+    margin-right: 400px;
+}
+
+/* Header section */
+.my-day-header {
+    padding: 20px;
+    font-size: 1.5rem;
+    text-align: left;
+    margin-left: 10px;
+    width: calc(100% - 60px);
+    height: fit-content;
+}
+  
+.my-day-header p {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Task list Styles */
+.task-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-left: 30px;
+    background-color: #e3f2fc;
+}
+
+/* Task item styles */
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #c8e4f5;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 90px);
+    cursor: pointer;
+    flex-wrap: wrap; 
+}
+
+/* Task info styles */
+.task-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.task-content .fa-star {
+    margin-left: auto; 
+    margin-right: 10px;
+}
+
+.task-info {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;  /* Align the task-info to the most-left */
+}
+
+/* Task meta styles */
+.task-meta {
+    color: gray;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+  
+.task-meta span {
+    margin-right: 10px;
+}
+
+
+/* Task item completed styles */
+.task-item.completed-task {
+    background-color: #f0f4ff;
+    margin-left: -10px;
+    width: calc(100% - 72px);
+}   
+
+.task-item.completed-task i {
+    text-decoration: none;
+}
+
+.task-item.completed-task label{
+    text-decoration: line-through;
+    color: #777;
+}
+
+.task-item input[type="checkbox"] {
+    appearance: none; 
+    width: 20px; 
+    height: 20px; 
+    margin-right: 12px;
+    border: 2px solid #222; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    position: relative; 
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s; 
+}
+  
+.task-item input[type="checkbox"]:checked {
+    background-color: #005baf; 
+    border-color: #005baf; 
+}
+
+.task-item input[type="checkbox"]:checked::after {
+    content: '✓'; 
+    position: absolute; 
+    top: 0; 
+    left: 3px; 
+    color: white; 
+    font-size: 12px; 
+}
+  
+.task-item label {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Completed section styles */
+.completed-section {
+    margin-top: 20px; 
+    border: none; 
+    padding: 10px; 
+}
+
+.completed-header {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem; 
+    color: #000; 
+    text-align: left;
+    width: fit-content;
+    background-color: white; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    outline: none; 
+    border-radius: 5px; 
+    margin-bottom: 24px;
+    margin-left: -10px;
+    padding: 8px;
+}
+
+.completed-header i {
+    margin-right: 10px;
+    color: #000;
+}
+
+.completed-task input[type="checkbox"] {
+    filter: none; 
+}
+
+/* Bookmark icon */
+.bookmarked {
+    color: #253892;
+}
+
+/* Task Input Container */
+.task-input {
+    background-color: #fff; 
+    padding: 8px; 
+    margin-left: 30px;
+    margin-bottom: 10px;
+    position: sticky;
+    bottom: 0;
+    width: calc(100% - 140px);
+    display: flex;
+    align-items: center; 
+    border: 1px solid #c8e4f5; 
+    border-radius: 5px; 
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.task-input input {
+    flex: 1;
+    padding: 12px 0;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    position: relative;
+}
+
+.task-input i {
+    color: #000;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.task-input i:hover {
+    color: #0078d7
+}
+
+/* Task Details Sidebar */
+.task-details-section {
+    width: 400px;
+    min-height: 100%;
+    height: auto;
+    margin-top: 70px;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+    z-index: 10;
+}
+
+.task-details-section.active {
+    transform: translateX(0);
+}
+

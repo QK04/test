@@ -1,0 +1,248 @@
+/* General Styles */
+.settings-page {
+    background-color: #e6f1f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Settings Container styles */
+.settings-container {
+    width: 800px;
+    margin: 100px auto;
+    padding: 40px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+}
+
+.settings-container h2,
+.settings-container h3,
+.settings-container p,
+.settings-container label {
+    margin: 0;
+}
+
+/* Header styles */
+.settings-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    background-color: #ffffff; 
+    padding: 10px 20px;
+    z-index: 1000; 
+}
+
+/* Logo style */
+.settings-header .logo {
+    display: inline-flex; 
+    align-items: center; 
+    color: #253892;
+}
+
+/* Logo image style */
+.settings-header .logo img {
+    height: 40px; 
+    margin-right: 10px; 
+}
+
+/* Logo text styles */
+.settings-header .logo span {
+    font-size: 25px; 
+    font-weight: bold;
+    margin-top: 23px;
+}
+
+/* Home Button */
+.settings-header .home-btn {
+    color: #253892;
+    font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.settings-header .home-btn:hover {
+    color: #0056b3;
+}
+
+/* Account icon styles */
+.settings-header .account {
+    position: relative;
+    color: #253892;
+    font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 50px;
+}
+
+/* Dropdown menu styles */
+.settings-header .account .dropdown-content {
+    display: none; 
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 250px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Show the dropdown on hover */
+.settings-header .account:hover .dropdown-content {
+    display: block;
+}
+
+/* Dropdown links */
+.settings-header .account .dropdown-content a {
+    color: #253892;
+    padding: 15px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+/* Icon styles in dropdown links */
+.settings-header .account .dropdown-content a i {
+    margin-right: 10px;
+    font-size: 20px;
+    display: inline-flex;
+    width: 25px;
+    text-align: center;
+}
+
+/* Line separator between links */
+.settings-header .account .dropdown-content a::after {
+    content: '';
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 0;
+    height: 2px;
+    background-color: #a8a8a844;
+    transition: background-color 0.3s;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-section .profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 15px;
+}
+
+.profile-details {
+    flex-grow: 1; 
+}
+
+.profile-section .profile-details h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.profile-section .profile-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.profile-section .profile-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.profile-section .profile-actions button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.profile-section .profile-actions .manage-account-btn {
+    background-color: #0078D4;
+    color: white;
+}
+
+.profile-section .profile-actions .sign-out-btn {
+    background-color: #d9534f;
+    color: white;
+}
+
+/* Settings Section */
+.settings-section {
+    padding-top: 30px;
+}
+
+.settings-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.settings-section .setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.settings-section .setting-item label {
+    font-size: 16px;
+    color: #333;
+}
+
+.settings-section .setting-item input[type="checkbox"],
+.settings-section .setting-item input[type="radio"] {
+    width: 40px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.settings-section .setting-item select {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Button Styles */
+.settings-section .sync-btn {
+    background-color: #0078D4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.settings-section .sync-btn:hover {
+    background-color: #005a9e;
+}
+
+/* Help & Feedback Section */
+.help-links a {
+    display: block;
+    color: #0078D4;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.help-links a:hover {
+    text-decoration: underline;
+}
