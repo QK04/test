@@ -1,0 +1,260 @@
+.profile-page {
+    background-color: #e6f1f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header styles */
+.profile-page header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    background-color:#ffffff; 
+    padding: 10px 20px;
+    z-index: 1000; 
+}
+
+/* Logo style */
+.profile-page header .logo {
+    display: inline-flex; 
+    align-items: center; 
+    color: #253892;
+}
+
+/* Logo image style */
+.profile-page header .logo img {
+    height: 40px; 
+    margin-right: 10px; 
+}
+
+/* Logo text styles */
+.profile-page header .logo span {
+    font-size: 25px; 
+    font-weight: bold;
+    margin-top: 23px;
+}
+
+/* Home Button */
+.profile-page header .home-btn {
+    color: #253892;
+    font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.profile-page header .home-btn:hover {
+    color: #0056b3;
+}
+
+/* Account icon styles */
+.profile-page header .account {
+    position: relative;
+    color: #253892;
+    font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 50px;
+}
+
+/* Dropdown menu styles */
+.profile-page header .account .dropdown-content {
+    display: none; /* Hide dropdown by default */
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 250px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    border-radius: 10px;
+}
+
+/* Show the dropdown on hover */
+.profile-page header .account:hover .dropdown-content {
+    display: block;
+}
+
+/* Dropdown links */
+.profile-page header .account .dropdown-content a {
+    color: #253892;
+    padding: 15px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+/* Icon styles in dropdown links */
+.profile-page header .account .dropdown-content a i {
+    margin-right: 10px;
+    font-size: 20px;
+    display: inline-flex;
+    width: 25px;
+    text-align: center;
+}
+
+/* Line separator between links */
+.profile-page header .account .dropdown-content a::after {
+    content: '';
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 0;
+    height: 2px;
+    background-color: #a8a8a844;
+    transition: background-color 0.3s;
+}
+
+.profile-page .main-content {
+    width: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    padding-top: 100px; 
+}
+
+.profile-page .profile-container {
+    width: 70%;
+    max-width: 600px;
+    min-height: 600px;
+    margin: 0; 
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-page .profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.profile-page .profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile-page .profile-info {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.profile-page .profile-info h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile-page .profile-info p {
+    margin-top: 10px;
+    color: #777;
+}
+
+.edit-profile-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    margin-top: 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-details {
+    margin-top: 20px;
+}
+
+.profile-details h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.profile-about p {
+    margin-bottom: 10px;
+}
+
+.task-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.task-stat {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.task-stat h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.task-stat p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* For screens up to 1900px */
+@media (max-width: 1900px) {
+    .profile-page header .logo span {
+        font-size: 22px; /* Slightly smaller logo text */
+    }
+
+    .profile-info h1 {
+        font-size: 22px; /* Adjusted for smaller screens */
+    }
+
+    .profile-details h2 {
+        font-size: 16px; /* Adjusted for smaller screens */
+    }
+
+    .task-stat {
+        padding: 10px; /* Slightly smaller padding */
+    }
+
+    .task-stat h3 {
+        font-size: 14px; /* Adjusted font size */
+    }
+
+    .task-stat p {
+        font-size: 16px; /* Adjusted font size */
+    }
+}
+
+/* For screens up to 1280px */
+@media (max-width: 1280px) {
+    .profile-page .main-content {
+        padding-top: 150px;
+    }
+    .profile-container {
+        padding: 15px; /* Reduce padding */
+        width: 70%;
+        max-width: 500px;
+        min-height: 500px;
+    }
+
+    .profile-page header .logo span {
+        font-size: 20px; /* Further reduced logo text size */
+    }
+
+    .profile-info h1 {
+        font-size: 20px; /* Further reduced profile title size */
+    }
+
+    .edit-profile-btn {
+        padding: 8px 12px; /* Adjusted button size */
+    }
+
+    .task-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}

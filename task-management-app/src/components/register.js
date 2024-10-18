@@ -8,6 +8,7 @@ function Register(){
     const[password, setPassword] = useState("");
     const[re_password, setRePassword] = useState("");
     const[error, setError] = useState("");
+    const [success, setSuccess] = useState(false);
 
     const navigate = useNavigate();
 
@@ -24,7 +25,10 @@ function Register(){
         }
 
         try{
+            setSuccess(true);
+
             setTimeout(() => {
+                setSuccess(false);
                 navigate("/login")
             }, 3000);
         } catch (e){
@@ -45,7 +49,7 @@ function Register(){
                     <form onSubmit={handleRegister}>
                         <div className="form-group">
                             <input 
-                            type="text" 
+                            type="email" 
                             id="email" 
                             name="email" 
                             required="" 
@@ -94,6 +98,12 @@ function Register(){
                     </form>
                 </div>
             </div>
+
+            {success && (
+                <div className="success-pop-up">
+                    <p>You have successfully registered!</p>
+                </div>
+            )}
         </div>
     );
 };

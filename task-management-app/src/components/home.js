@@ -42,7 +42,7 @@ function Home() {
       case 'Tasks':
         return <AllTasks/>;
       default:
-        return <h2>Welcome to Task Management</h2>;
+        return <MyDay />;
     }
   };
 
@@ -64,9 +64,9 @@ function Home() {
         <div className="account" id="account-menu">
           <i className="fas fa-user"></i>
           <div className="dropdown-content">
-            <Link to="#"><i className="fa-solid fa-user-ninja"></i>Account</Link>
-            <Link to="#"><i className="fa-solid fa-gear"></i>Settings</Link>
-            <Link to="#" className="logout"><i className="fa-solid fa-right-from-bracket"></i>Logout</Link>
+            <Link to="/profile"><i className="fa-solid fa-user-ninja"></i>Account</Link>
+            <Link to="/settings"><i className="fa-solid fa-gear"></i>Settings</Link>
+            <Link to="/login" className="logout"><i className="fa-solid fa-right-from-bracket"></i>Logout</Link>
           </div>
         </div>
       </header>
