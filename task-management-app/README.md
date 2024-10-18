@@ -16,7 +16,7 @@ To get started with the project, follow these steps:
 1. **Clone the repository** to your local machine:
     ```bash
     git clone https://github.com/neyugndz/Task-Management-App.git
-    cd task-management-app
+    cd Task-Management-App/task-management-app
     ```
 
 2. **Install dependencies** using npm:
