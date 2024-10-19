@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import '../css/home.css';
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import MyDay from "./MyDay";
 import Important from "./Important";
 import Planned from "./Planned";
@@ -82,25 +82,25 @@ function Home() {
         </div>
 
         <div className="nav-links">
-          <Link to="#" id='my-day-section' onClick={() => { setContent('My Day') }}>
+          <NavLink to="#" id='my-day-section' onClick={() => { setContent('My Day') }}>
             <i className="fa-regular fa-sun"></i>My Day
-          </Link>
-          <Link to="#" id='important-section' onClick={() => { setContent('Important') }}>
+          </NavLink>
+          <NavLink to="#" id='important-section' onClick={() => { setContent('Important') }}>
             <i className="fa-regular fa-star"></i>Important
-          </Link>
-          <Link to="#" id='planned-section' onClick={() => { setContent('Planned') }}>
+          </NavLink>
+          <NavLink to="#" id='planned-section' onClick={() => { setContent('Planned') }}>
             <i className="fa-solid fa-pen"></i>Planned
-          </Link>
-          <Link to="#" id='tasks-section' onClick={() => { setContent('Tasks') }}>
+          </NavLink>
+          <NavLink to="#" id='tasks-section' onClick={() => { setContent('Tasks') }}>
             <i className="fa-solid fa-house"></i>Tasks
-          </Link>
+          </NavLink>
         </div>
 
         <div className="divider-line"></div>
         
         <div className="new-section">
-          <Link to="#" data-target="new-list"><i className="fas fa-plus"></i>New list</Link>
-          <Link to="#" data-target="new-group"><i className="fas fa-copy"></i>New Group</Link>
+          <NavLink to="#" data-target="new-list"><i className="fas fa-plus"></i>New list</NavLink>
+          <NavLink to="#" data-target="new-group"><i className="fas fa-copy"></i>New Group</NavLink>
         </div>
       </div>
 

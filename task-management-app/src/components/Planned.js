@@ -48,8 +48,6 @@ function Planned() {
                     dateLabel = "Earlier";
                 } else if (dueDate >= today && dueDate < tomorrow) {
                     dateLabel = "Today";
-                } else if (dueDate >= tomorrow) {
-                    dateLabel = "Tomorrow";
                 } else {
                     dateLabel = new Date(task.dueDate).toLocaleDateString('en-US', {
                         weekday: 'short',

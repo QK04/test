@@ -70,12 +70,6 @@ function ForgotPassword() {
                     <Link to="/forgot-password" className="page-btn">
                         1
                     </Link>
-                    <Link to="/step2" className="page-btn">
-                        2
-                    </Link>
-                    <Link to="/step3" className="page-btn">
-                        3
-                    </Link>
                 </div>
             </div>
             {success && (

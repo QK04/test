@@ -1,5 +1,5 @@
 import {React, useState} from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import '../css/register.css';
 
 function Register(){
@@ -93,7 +93,7 @@ function Register(){
                         </div>
                         <input type="submit" defaultValue="Register" />
                         <div className="register">
-                                Already have an account? <NavLink to="/login">Sign in</NavLink>
+                                Already have an account? <Link to="/login">Sign in</Link>
                         </div>
                     </form>
                 </div>

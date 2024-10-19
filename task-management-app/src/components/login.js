@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, useNavigate} from 'react-router-dom';
+import { NavLink, Link, useNavigate} from 'react-router-dom';
 import '../css/login.css';
 
 function Login(){
@@ -55,10 +55,10 @@ function Login(){
                     <input type="submit" defaultValue="Login" />
                     </form>
                     <div className="footer">
-                            Forgot password? <NavLink to="/forgot-password">Click here</NavLink>
+                            Forgot password? <Link to="/forgot-password">Click here</Link>
                     </div>
                     <div className="register">
-                            Don't have an account? <NavLink to="/register">Register</NavLink>
+                            Don't have an account? <Link to="/register">Register</Link>
                     </div>
                 </div>
             </div>
