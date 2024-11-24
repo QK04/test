@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/get-user-role/{userId}": {
+      "name": "/get-user-role/{userId}",
+      "lambdaFunction": "getRole",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/save-role": {
+      "name": "/save-role",
+      "lambdaFunction": "saveRole",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
